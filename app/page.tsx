@@ -110,7 +110,7 @@ export default function HomePage() {
         <ContentNavigator lang={lang} isDark={isDark} />
 
         {/* 3. About / Introduction (Matching Image 2) */}
-        <About lang={lang} />
+        <About lang={lang} isDark={isDark} />
 
         {/* 4. Skills & Tech Stack */}
         <Skills lang={lang} />
