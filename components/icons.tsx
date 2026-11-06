@@ -19,14 +19,30 @@ export const Icons = {
     </svg>
   ),
   laravelBrand: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 50 50" fill="none" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
       <path
-        d="M24.7 4.2L4.5 15.6V37l20.2 11.4 20.3-11.4V15.6L24.7 4.2zm16.5 29.8l-16.5 9.3-16.5-9.3V18.1l16.5-9.3 16.5 9.3v15.9z"
-        fill="#FF2D20"
+        d="M22.5 8.2L18 5.6l-4.5 2.6v5.2l-4.5 2.6V5.6L4.5 3 0 5.6v10.4l9 5.2 9-5.2v-2.6l4.5-2.6V8.2z"
+        stroke="#FF2D20"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
       />
       <path
-        d="M24.7 13.8L12.5 20.7v13.8l12.2 6.9 12.2-6.9V20.7L24.7 13.8zm8.6 18.2l-8.6 4.9-8.6-4.9v-9.7l8.6-4.9 8.6 4.9v9.7z"
-        fill="#FF2D20"
+        d="M0 5.6l4.5 2.6L9 5.6M4.5 8.2v10.4M13.5 8.2L18 10.8l4.5-2.6M18 10.8V16M9 16l4.5-2.6 4.5 2.6M9 21.2V16"
+        stroke="#FF2D20"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  laravelReverb: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="#FF2D20" fillOpacity="0.14" stroke="#FF2D20" strokeWidth="1.5" />
+      <path
+        d="M6 12h2l1.5-4 3 8 2-6 1.5 2H18"
+        stroke="#FF2D20"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
@@ -42,55 +58,72 @@ export const Icons = {
   ),
   nextjs: ({ className = "w-6 h-6" }: IconProps) => (
     <svg viewBox="0 0 180 180" fill="none" className={className}>
-      <mask
-        id="mask0_next"
-        style={{ maskType: "alpha" }}
-        maskUnits="userSpaceOnUse"
-        x="0"
-        y="0"
-        width="180"
-        height="180"
-      >
-        <circle cx="90" cy="90" r="90" fill="black" />
-      </mask>
-      <g mask="url(#mask0_next)">
-        <circle cx="90" cy="90" r="90" fill="currentColor" fillOpacity="0.15" />
-        <path
-          d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
-          fill="currentColor"
-        />
-        <path d="M115 54H127V126H115V54Z" fill="currentColor" />
-      </g>
+      <circle cx="90" cy="90" r="88" fill="#000000" stroke="#3F3F46" strokeWidth="4" />
+      <path
+        d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
+        fill="#FFFFFF"
+      />
+      <path d="M115 54H127V126H115V54Z" fill="#FFFFFF" />
+    </svg>
+  ),
+  vite: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 32 32" fill="none" className={className}>
+      <path
+        d="M29.8 6.2L16.8 29.4c-.4.7-1.4.7-1.8 0L2.2 6.2c-.4-.8.2-1.7 1.1-1.5l12.7 2.3c.2 0 .4 0 .5 0l12.2-2.3c.9-.2 1.5.7 1.1 1.5z"
+        fill="#646CFF"
+      />
+      <path
+        d="M22.2 3.1L12.8 5c-.3.1-.5.3-.5.6l-.6 10.2c0 .4.3.7.7.6l2.6-.6c.4-.1.8.3.7.7l-.8 3.8c-.1.5.4.9.8.6l.5-.3 7.2-14.2c.2-.5-.2-1-.7-.9l-2.3.5c-.4.1-.8-.3-.7-.7l.5-2.2z"
+        fill="#FFD62E"
+      />
     </svg>
   ),
   php: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 256 130" fill="currentColor" className={className}>
-      <path
-        d="M87.3 12.3C60.4 12.3 40 28.6 34.4 56.4H56c3.2-13.8 13.9-22.1 27.8-22.1 16.9 0 26.2 9.5 23.3 23.6-21.7 1.8-49.8 4.7-65.7 15.2C24.3 84.7 21 99.8 24.3 115.8c3.2 15.4 16.2 24.9 33.7 24.9 14.6 0 26.7-6.6 34.4-17.7l-4.5 21.6h21.1l19.5-94.8c4.6-22.2-9-37.5-40.7-37.5zm-16.7 90.7c-9 0-14.7-4.4-16.3-12.2-1.9-9.1 2.3-15.6 13.8-19.4 9.1-3 23-4.5 35.8-5.7l-5.6 27.2c-5.7 6.6-15.7 10.1-27.7 10.1z"
-        fill="#777BB4"
-      />
-      <circle cx="128" cy="65" r="40" fill="#777BB4" fillOpacity="0.2" />
+    <svg viewBox="0 0 120 64" fill="none" className={className}>
+      <ellipse cx="60" cy="32" rx="56" ry="28" fill="#777BB4" stroke="#9CA3DB" strokeWidth="2" />
       <text
-        x="65"
-        y="85"
-        fill="#777BB4"
-        fontWeight="bold"
-        fontSize="65"
+        x="60"
+        y="40"
+        textAnchor="middle"
+        fill="#111827"
+        fontWeight="900"
+        fontStyle="italic"
+        fontSize="30"
         fontFamily="sans-serif"
       >
-        PHP
+        php
       </text>
     </svg>
   ),
   mysql: ({ className = "w-6 h-6" }: IconProps) => (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
       <path
-        d="M4 6c0-1.657 3.582-3 8-3s8 1.343 8 3v12c0 1.657-3.582 3-8 3s-8-1.343-8-3V6z"
+        d="M19.5 18.5c-1.8-.4-3.2-1.5-4.1-3.1-.6-1.1-.9-2.2-1-3.4-.6.2-1.3.2-1.9 0-.8-.3-1.4-.9-1.9-1.6-.7-1-1.3-2.2-2.2-3-.8-.7-1.9-1.2-3-1.1-.5 0-1 .2-1.3.6-.3.4-.2 1 .1 1.4.5.7 1.3 1.1 2 1.6.9.7 1.7 1.6 2.1 2.7.3.8.4 1.7.3 2.5-.2 1.1-.8 2.1-1.6 2.9.9-.2 1.8-.6 2.5-1.2.6.9 1.5 1.6 2.5 2 1.7.7 3.7.7 5.5-.3z"
         stroke="#00758F"
-        strokeWidth="2"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path d="M4 10c0 1.657 3.582 3 8 3s8-1.343 8-3" stroke="#F29111" strokeWidth="2" />
-      <path d="M4 14c0 1.657 3.582 3 8 3s8-1.343 8-3" stroke="#00758F" strokeWidth="2" />
+      <circle cx="7.5" cy="8.5" r="0.8" fill="#F29111" />
+    </svg>
+  ),
+  postgresql: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <ellipse cx="12" cy="6" rx="8" ry="3.2" fill="#336791" fillOpacity="0.25" stroke="#336791" strokeWidth="1.8" />
+      <path d="M4 6v6c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6" stroke="#336791" strokeWidth="1.8" />
+      <path d="M4 12v6c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-6" stroke="#5B9BD5" strokeWidth="1.8" />
+    </svg>
+  ),
+  supabase: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path
+        d="M13.5 21.6c-.6.8-1.8.3-1.8-.7V13h7.8c.9 0 1.4 1 .8 1.7l-6.8 6.9z"
+        fill="#249361"
+      />
+      <path
+        d="M10.5 2.4c.6-.8 1.8-.3 1.8.7V11H4.5c-.9 0-1.4-1-.8-1.7l6.8-6.9z"
+        fill="#3ECF8E"
+      />
     </svg>
   ),
   esp32: ({ className = "w-6 h-6" }: IconProps) => (
@@ -99,6 +132,82 @@ export const Icons = {
       <path d="M9 8h6M9 12h6M9 16h3" stroke="#E53935" strokeWidth="1.8" strokeLinecap="round" />
       <path d="M2 7h3M2 12h3M2 17h3M19 7h3M19 12h3M19 17h3" stroke="#E53935" strokeWidth="1.8" strokeLinecap="round" />
       <circle cx="16" cy="16" r="1" fill="#E53935" />
+    </svg>
+  ),
+  ubuntu: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="12" cy="12" r="10" fill="#E95420" />
+      <circle cx="12" cy="12" r="4.5" stroke="#FFFFFF" strokeWidth="1.8" />
+      <circle cx="6.2" cy="12" r="1.6" fill="#FFFFFF" />
+      <circle cx="14.9" cy="7" r="1.6" fill="#FFFFFF" />
+      <circle cx="14.9" cy="17" r="1.6" fill="#FFFFFF" />
+    </svg>
+  ),
+  apache: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path
+        d="M18.5 3.5c-4 1.5-8.5 6-11.5 12.5L5 20.5l2-1.5c5.5-2.5 10.5-7.5 11.5-15.5z"
+        fill="#D22128"
+      />
+      <path
+        d="M18.5 3.5c-2 4.5-6 9.5-11.5 15.5"
+        stroke="#F57C00"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path d="M13 9.5l3.5.5M10.5 13l3.5.5" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  ),
+  nginx: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <polygon
+        points="12,2 20.66,7 20.66,17 12,22 3.34,17 3.34,7"
+        fill="#009639"
+      />
+      <path
+        d="M8.5 16V8l7 8V8"
+        stroke="#FFFFFF"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  pm2: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <rect x="2" y="4" width="20" height="16" rx="4" fill="#2B037A" stroke="#7C3AED" strokeWidth="1.5" />
+      <text
+        x="12"
+        y="15"
+        textAnchor="middle"
+        fill="#38BDF8"
+        fontWeight="900"
+        fontSize="8.5"
+        fontFamily="monospace"
+      >
+        PM2
+      </text>
+    </svg>
+  ),
+  bind9: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="12" cy="12" r="9" stroke="#0284C7" strokeWidth="1.8" />
+      <ellipse cx="12" cy="12" rx="4" ry="9" stroke="#38BDF8" strokeWidth="1.5" />
+      <path d="M3.5 9h17M3.5 15h17" stroke="#0284C7" strokeWidth="1.5" />
+    </svg>
+  ),
+  cloudflare: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path
+        d="M17.5 18H6.8c-2.3 0-4.3-1.8-4.3-4.1 0-2 1.4-3.7 3.4-4 .7-2.8 3.2-4.9 6.3-4.9 3.2 0 5.9 2.3 6.4 5.4 1.7.3 2.9 1.8 2.9 3.6 0 2.2-1.8 4-4 4z"
+        fill="#F38020"
+      />
+      <path d="M9 14h6m0 0l-2-2m2 2l-2 2" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  vercel: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <polygon points="12,3 22,20 2,20" />
     </svg>
   ),
   n8n: ({ className = "w-6 h-6" }: IconProps) => (
@@ -111,8 +220,14 @@ export const Icons = {
   ),
   typescript: ({ className = "w-6 h-6" }: IconProps) => (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <rect width="24" height="24" rx="4" fill="#3178C6" />
-      <path d="M5 9h6M8 9v9M14 15.5c.8.8 2 1.2 3.2 1.2 1.5 0 2.3-.7 2.3-1.8 0-2.3-5-1.5-5-4.4 0-1.6 1.4-2.8 3.5-2.8 1.4 0 2.5.4 3.2 1l-.8 1.5c-.6-.5-1.4-.8-2.4-.8-1.2 0-1.8.6-1.8 1.4 0 2.2 5 1.4 5 4.4 0 1.8-1.5 3-3.8 3-1.6 0-3-.5-4-1.5l.6-1.2z" fill="#FFFFFF" />
+      <rect width="24" height="24" rx="3" fill="#3178C6" />
+      <path
+        d="M5.5 11h6M8.5 11v8.5M14.2 17.5c.8.7 1.9 1.1 3.1 1.1 1.5 0 2.3-.7 2.3-1.7 0-2.1-4.8-1.4-4.8-4.2 0-1.5 1.3-2.6 3.3-2.6 1.3 0 2.4.4 3.1.9l-.8 1.4c-.6-.4-1.3-.7-2.2-.7-1.1 0-1.7.5-1.7 1.2 0 2 4.8 1.3 4.8 4.2 0 1.7-1.4 2.9-3.7 2.9-1.6 0-2.9-.5-3.8-1.3l.4-1.2z"
+        stroke="#FFFFFF"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   tailwind: ({ className = "w-6 h-6" }: IconProps) => (
@@ -120,6 +235,31 @@ export const Icons = {
       <path
         d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"
         fill="#38BDF8"
+      />
+    </svg>
+  ),
+  html: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 32 32" fill="none" className={className}>
+      <path d="M6 28L4 3h24l-2 25-10 3-10-3z" fill="#E44D26" />
+      <path d="M16 28.5l8-2.2 1.7-21.3H16v23.5z" fill="#F16529" />
+      <path d="M16 13h-4.2l-.3-3.2H16V6.7H8.2l.8 9.4H16V13zm0 8.2l-3.6-1-.2-2.5H9l.4 5 6.6 1.8v-3.3z" fill="#EBEBEB" />
+      <path d="M16 13v3.1h3.9l-.4 4.1-3.5 1v3.3l6.6-1.8.9-9.7H16zm0-6.3v3.1h7.5l.3-3.1H16z" fill="#FFFFFF" />
+    </svg>
+  ),
+  css: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 32 32" fill="none" className={className}>
+      <path d="M6 28L4 3h24l-2 25-10 3-10-3z" fill="#1572B6" />
+      <path d="M16 28.5l8-2.2 1.7-21.3H16v23.5z" fill="#33A9DC" />
+      <path d="M16 13H9l.3 3.1H16V13zm0-6.3H8.2l.3 3.1H16V6.7zm0 14.5l-3.6-1-.2-2.5H9l.4 5 6.6 1.8v-3.3z" fill="#EBEBEB" />
+      <path d="M16 13v3.1h3.9l-.4 4.1-3.5 1v3.3l6.6-1.8.9-9.7.6-6.3H16v3.1h4.2l-.3 3.2H16z" fill="#FFFFFF" />
+    </svg>
+  ),
+  javascript: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <rect width="24" height="24" rx="3" fill="#F7DF1E" />
+      <path
+        d="M11.2 17c0 2-1.1 2.9-2.8 2.9-1.5 0-2.4-.8-2.8-1.7l1.5-.9c.3.5.6 1 1.3 1 .6 0 1.1-.3 1.1-1.3v-5.8h1.7V17zm6.1 2.9c-1.8 0-3-.9-3.6-2l1.5-.9c.4.7 1 1.2 2 1.2.9 0 1.4-.4 1.4-1 0-.7-.6-1-1.5-1.4l-.5-.2c-1.5-.6-2.5-1.4-2.5-3.1 0-1.5 1.2-2.7 3-2.7 1.3 0 2.2.5 2.9 1.6l-1.5 1c-.3-.6-.7-.9-1.4-.9-.6 0-1.1.4-1.1.9 0 .6.4.9 1.4 1.3l.5.2c1.8.8 2.8 1.6 2.8 3.3 0 1.9-1.5 2.7-3.4 2.7z"
+        fill="#000000"
       />
     </svg>
   ),
@@ -246,6 +386,12 @@ export const Icons = {
       <polyline points="9 18 15 12 9 6" />
     </svg>
   ),
+  arrowRight: ({ className = "w-4 h-4" }: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  ),
   filter: ({ className = "w-4 h-4" }: IconProps) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
@@ -326,7 +472,7 @@ export const Icons = {
   admin: ({ className = "w-4 h-4" }: IconProps) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <circle cx="12" cy="12" r="3" />
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0-2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
     </svg>
   ),
   degree: ({ className = "w-4 h-4" }: IconProps) => (

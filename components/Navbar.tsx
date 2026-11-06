@@ -25,17 +25,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navItems = [
     { num: "01", id: "about", label: { id: "About", en: "About" } },
-    { num: "02", id: "skills", label: { id: "Skills", en: "Skills" } },
-    { num: "03", id: "projects", label: { id: "Proyek", en: "Projects" } },
-    { num: "04", id: "experience", label: { id: "Pengalaman", en: "Experience" } },
-    { num: "05", id: "contact", label: { id: "Kontak", en: "Contact" } },
+    { num: "02", id: "projects", label: { id: "Portfolio", en: "Portfolio" } },
+    { num: "03", id: "contact", label: { id: "Contact", en: "Contact" } },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ["hero", "about", "skills", "projects", "experience", "contact"];
+      const sections = ["hero", "about", "projects", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -75,28 +73,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             : "transparent",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo / Brand — Monochrome */}
-          <button
-            onClick={() => scrollTo("hero")}
-            className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
-          >
-            <div className="w-10 h-10 rounded-xl bg-white [data-theme='light']_&:bg-black flex items-center justify-center text-black [data-theme='light']_&:text-white font-black text-lg shadow-md group-hover:scale-105 transition-transform">
-              DS
-            </div>
-            <div>
-              <div className="font-bold text-base tracking-wide flex items-center gap-1.5 font-stencil text-white [data-theme='light']_&:text-black">
-                <span>DANIEL</span>
-                <span className="text-zinc-400 [data-theme='light']_&:text-zinc-500">SINURAT</span>
-              </div>
-              <p className="text-[11px] text-zinc-400 tracking-wider uppercase font-medium">
-                Web Dev &bull; IoT
-              </p>
-            </div>
-          </button>
-
-          {/* Desktop Numbered Nav (01-05) — Monochrome */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Desktop Numbered Nav (01-03) — Pojok Kiri */}
+          <nav className="hidden sm:flex items-center gap-2 lg:gap-4">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -125,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Action Tools: Lang Toggle, Dark/Light Mode, CV Download — Monochrome */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3 ml-auto">
             {/* Language Switcher */}
             <div className="flex items-center p-1 rounded-lg bg-zinc-900 [data-theme='light']_&:bg-zinc-200 border border-zinc-800 [data-theme='light']_&:border-zinc-300 text-xs font-semibold">
               <button
@@ -183,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex sm:hidden items-center gap-2">
+          <div className="flex sm:hidden items-center gap-2 ml-auto">
             <button
               onClick={() => setIsDark(!isDark)}
               className="p-2 rounded-lg bg-zinc-900 [data-theme='light']_&:bg-zinc-200 border border-zinc-800 [data-theme='light']_&:border-zinc-300 text-zinc-300 cursor-pointer"
@@ -227,7 +206,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-xs uppercase font-bold tracking-wider text-white [data-theme='light']_&:text-black">
                 {lang === "id" ? "Navigasi Menu" : "Navigation Menu"}
               </span>
-              <span className="text-xs text-zinc-400 font-mono">01 &mdash; 05</span>
+              <span className="text-xs text-zinc-400 font-mono">01 &mdash; 03</span>
             </div>
 
             <nav className="flex flex-col gap-2">

@@ -632,7 +632,7 @@ export const personalInfo = {
     whatsapp: "6282145678901",
     email: "danielsinurat.dev@gmail.com",
     location: "Kediri / Malang, Jawa Timur, Indonesia",
-    github: "https://github.com/danielsinurat",
+    github: "https://github.com/danieltigorsinuratt",
     linkedin: "https://linkedin.com/in/danielsinurat",
   },
 };

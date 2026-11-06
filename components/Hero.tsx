@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
       {/* ── LAYER 1: PORTFOLIO — 3D Text Adaptif (Dark: Putih/Silver, Light: Hitam Pekat) ── */}
       <div
         className="absolute z-[1] pointer-events-none select-none"
-        style={{ top: "9%", bottom: "13%", left: "6%", right: "6%" }}
+        style={{ top: "9%", bottom: "13%", left: "15%", right: "15%" }}
       >
         <svg
           viewBox="0 0 1000 330"

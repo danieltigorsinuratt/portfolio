@@ -1,58 +1,22 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import { Language, personalInfo } from "@/data/portfolio-data";
 import { Icons } from "./icons";
+import { ParticlePortrait, ParticlePortraitProps } from "./ParticlePortrait";
 
 interface AboutProps {
   lang: Language;
   isDark?: boolean;
+  portraitProps?: ParticlePortraitProps;
 }
 
-export const About: React.FC<AboutProps> = ({ lang, isDark = true }) => {
+export const About: React.FC<AboutProps> = ({
+  lang,
+  isDark = true,
+  portraitProps,
+}) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-
-  // ── Interactive 3D Tilt & Direct Cursor Reaction on Image ──
-  const photoRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0, spotX: 50, spotY: 50, isHovered: false });
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const el = photoRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    // Calculate rotation (-12deg to +12deg)
-    const rotateX = -((y - centerY) / centerY) * 10;
-    const rotateY = ((x - centerX) / centerX) * 10;
-
-    // Light spotlight percentage
-    const spotX = (x / rect.width) * 100;
-    const spotY = (y / rect.height) * 100;
-
-    setTilt({
-      rotateX,
-      rotateY,
-      spotX,
-      spotY,
-      isHovered: true,
-    });
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setTilt({
-      rotateX: 0,
-      rotateY: 0,
-      spotX: 50,
-      spotY: 50,
-      isHovered: false,
-    });
-  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.contact.email);
@@ -80,70 +44,24 @@ export const About: React.FC<AboutProps> = ({ lang, isDark = true }) => {
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
         
         {/* ════════════════════════════════════════════
-            KOLOM KIRI: FOTO REAL (TANPA GRID/BOX, EFEK INTERAKTIF LANGSUNG DI FOTO)
+            KOLOM KIRI: PARTICLE PORTRAIT CANVAS (HALFTONE INTERAKTIF)
         ════════════════════════════════════════════ */}
         <div className="w-full sm:w-[380px] lg:w-[420px] flex-shrink-0 flex flex-col items-center">
-          <div className="relative w-full max-w-[360px] sm:max-w-none select-none">
+          <div className="relative w-full max-w-[380px] sm:max-w-none select-none">
             
-            {/* Foto Wrapper dengan Efek Interaktif 3D & Spotlight Langsung pada Gambar */}
-            <div
-              ref={photoRef}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              className="relative w-full aspect-[3/4] cursor-pointer"
-              style={{
-                perspective: "1000px",
-              }}
-            >
-              {/* Inner 3D Container — Tanpa border kotak, tanpa grid */}
-              <div
-                className="relative w-full h-full rounded-2xl overflow-hidden transition-transform duration-200 ease-out"
-                style={{
-                  transform: tilt.isHovered
-                    ? `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale3d(1.03, 1.03, 1.03)`
-                    : "rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
-                  transition: tilt.isHovered ? "transform 0.1s ease-out" : "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                {/* Foto Real Daniel Sinurat */}
-                <Image
-                  src="/images/daniel.png"
-                  alt="Daniel Sinurat"
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 380px, 420px"
-                  className="object-cover object-top filter grayscale contrast-110 hover:contrast-125 transition-all duration-500 ease-out"
-                />
+            {/* ParticlePortrait Canvas 1:1 */}
+            <ParticlePortrait
+              src="/images/daniel.png"
+              gap={5}
+              radius={100}
+              strength={18}
+              dotColor="#f5e6c8"
+              lightDotColor="#111111"
+              isDark={isDark}
+              {...portraitProps}
+            />
 
-                {/* Efek Spotlight & Halftone Light Flare Langsung di Atas Gambar Mengikuti Cursor */}
-                <div
-                  className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-                  style={{
-                    opacity: tilt.isHovered ? 1 : 0,
-                    background: isDark
-                      ? `radial-gradient(circle 180px at ${tilt.spotX}% ${tilt.spotY}%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 80%)`
-                      : `radial-gradient(circle 180px at ${tilt.spotX}% ${tilt.spotY}%, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.04) 50%, transparent 80%)`,
-                    mixBlendMode: isDark ? "screen" : "multiply",
-                  }}
-                />
-
-                {/* Subtle Dynamic Halftone Screen Overlay — Aktif interaktif saat hover */}
-                <div
-                  className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-                  style={{
-                    opacity: tilt.isHovered ? 0.25 : 0.08,
-                    backgroundImage: isDark
-                      ? "radial-gradient(circle, #FFFFFF 1.2px, transparent 1.2px)"
-                      : "radial-gradient(circle, #000000 1.2px, transparent 1.2px)",
-                    backgroundSize: "6px 6px",
-                    mixBlendMode: "overlay",
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Nama, Role & Social Icons di Bawah Foto (Tanpa Box/Grid) */}
+            {/* Nama, Role & Social Icons di Bawah Foto */}
             <div className="mt-5 flex items-center justify-between px-1">
               <div>
                 <h3 className="font-extrabold text-base sm:text-lg c-text-main tracking-wider font-stencil uppercase">
@@ -154,7 +72,7 @@ export const About: React.FC<AboutProps> = ({ lang, isDark = true }) => {
                 </p>
               </div>
 
-              {/* Social Badges Bersih Tanpa Polkadot Luar */}
+              {/* Social Badges */}
               <div className="flex items-center gap-2">
                 <a
                   href={personalInfo.contact.github}
@@ -242,7 +160,25 @@ export const About: React.FC<AboutProps> = ({ lang, isDark = true }) => {
               TECH STACK ANDALAN:
             </span>
             <div className="flex flex-wrap gap-2">
-              {["Laravel", "React", "Next.js", "PHP", "MySQL", "ESP32", "n8n", "Tailwind CSS"].map((tech) => (
+              {[
+                "Laravel",
+                "PHP",
+                "Laravel Reverb",
+                "Next.js",
+                "React",
+                "Vite",
+                "MySQL",
+                "PostgreSQL",
+                "Supabase",
+                "ESP32",
+                "Ubuntu Server",
+                "Apache2",
+                "Nginx",
+                "PM2",
+                "bind9",
+                "Cloudflare Tunnel",
+                "Vercel",
+              ].map((tech) => (
                 <span
                   key={tech}
                   className="px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold c-text-main transition-transform hover:scale-105"
