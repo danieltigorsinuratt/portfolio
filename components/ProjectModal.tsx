@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Project, Language } from "@/data/portfolio-data";
 import { Icons } from "./icons";
+import { MobilePhoneMockup } from "./MobilePhoneMockup";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -17,252 +18,274 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   onClose,
   lang,
 }) => {
-  const [deviceView, setDeviceView] = useState<"laptop" | "mobile">("laptop");
+  const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
+
+  useEffect(() => {
+    if (isOpen && project) {
+      const prevBodyOverflow = document.body.style.overflow;
+      const prevHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prevBodyOverflow;
+        document.documentElement.style.overflow = prevHtmlOverflow;
+      };
+    }
+  }, [isOpen, project]);
 
   if (!isOpen || !project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/85 backdrop-blur-md transition-opacity"
-        onClick={onClose}
-      />
-
-      {/* Modal Dialog Card — Monochrome */}
-      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-[#141414] [data-theme='light']_&:bg-white border border-zinc-800 [data-theme='light']_&:border-zinc-300 shadow-2xl z-10 p-5 sm:p-8 text-left transition-all">
-        
-        {/* Close Button */}
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#08080a]/98 [data-theme='light']_&:bg-zinc-50/98 backdrop-blur-xl transition-opacity">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        {/* Top Back Button (Matching Image 1: <- Back) */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 [data-theme='light']_&:bg-zinc-200 [data-theme='light']_&:hover:bg-zinc-300 text-zinc-400 hover:text-white [data-theme='light']_&:hover:text-black transition-colors cursor-pointer z-20"
-          aria-label="Close project modal"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-400 hover:text-white [data-theme='light']_&:text-zinc-600 [data-theme='light']_&:hover:text-black transition-colors mb-8 cursor-pointer group"
         >
-          <Icons.close className="w-5 h-5" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-4 h-4 transition-transform group-hover:-translate-x-1"
+          >
+            <path d="M19 12H5" />
+            <path d="m12 19-7-7 7-7" />
+          </svg>
+          <span>Back</span>
         </button>
 
-        {/* Modal Header */}
-        <div className="pr-12 mb-6">
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-md bg-zinc-800 [data-theme='light']_&:bg-zinc-200 text-zinc-200 [data-theme='light']_&:text-zinc-800 font-mono text-xs font-semibold uppercase tracking-wider">
-              {project.categoryLabel[lang]}
-            </span>
-            <span className="text-zinc-600">&bull;</span>
-            <span className="text-xs text-zinc-400 font-mono font-medium">
-              {project.role[lang]}
-            </span>
-          </div>
+        {/* Main 2-Column Layout Matching Image 1 */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          {/* LEFT COLUMN: Title, Description, Counters, Links, Technologies Used */}
+          <div className="lg:col-span-6">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white [data-theme='light']_&:text-black">
+              {project.title[lang]}
+            </h1>
+            <div className="w-16 h-0.5 bg-zinc-600 [data-theme='light']_&:bg-zinc-400 mt-4 mb-6 rounded-full" />
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white [data-theme='light']_&:text-black font-stencil tracking-wide">
-            {project.title[lang]}
-          </h2>
-          <p className="text-sm sm:text-base text-zinc-300 [data-theme='light']_&:text-zinc-700 mt-2 font-medium">
-            {project.tagline[lang]}
-          </p>
-        </div>
-
-        {/* Mockup Showcase with Switcher — Monochrome */}
-        <div className="mb-8 rounded-2xl bg-zinc-950 [data-theme='light']_&:bg-zinc-100 border border-zinc-800 [data-theme='light']_&:border-zinc-300 p-4 sm:p-6">
-          <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800 [data-theme='light']_&:border-zinc-200">
-            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-              {lang === "id" ? "PRATINJAU MOCKUP LAYAR" : "SCREEN MOCKUP PREVIEW"}
-            </span>
-            <div className="flex items-center gap-1 p-1 rounded-lg bg-zinc-900 [data-theme='light']_&:bg-zinc-200 border border-zinc-800 [data-theme='light']_&:border-zinc-300">
-              <button
-                onClick={() => setDeviceView("laptop")}
-                className={`px-3 py-1 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-                  deviceView === "laptop"
-                    ? "bg-white text-black [data-theme='light']_&:bg-black [data-theme='light']_&:text-white font-bold"
-                    : "text-zinc-400 hover:text-white [data-theme='light']_&:hover:text-black"
-                }`}
-              >
-                <Icons.laptop className="w-3.5 h-3.5" />
-                <span>Laptop</span>
-              </button>
-              <button
-                onClick={() => setDeviceView("mobile")}
-                className={`px-3 py-1 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-                  deviceView === "mobile"
-                    ? "bg-white text-black [data-theme='light']_&:bg-black [data-theme='light']_&:text-white font-bold"
-                    : "text-zinc-400 hover:text-white [data-theme='light']_&:hover:text-black"
-                }`}
-              >
-                <Icons.smartphone className="w-3.5 h-3.5" />
-                <span>HP (Mobile)</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Interactive Mockup Container */}
-          <div className="flex items-center justify-center min-h-[220px] sm:min-h-[280px]">
-            {deviceView === "laptop" ? (
-              // Laptop Mockup Frame — Monochrome
-              <div className="w-full max-w-xl rounded-xl border border-zinc-700 bg-zinc-900 shadow-2xl overflow-hidden">
-                {/* Browser Top Bar */}
-                <div className="flex items-center gap-1.5 px-3 py-2 bg-zinc-800 border-b border-zinc-700">
-                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                  <div className="mx-auto px-4 py-0.5 rounded bg-zinc-900 text-[10px] text-zinc-400 font-mono truncate max-w-xs">
-                    https://{project.id}.danielsinurat.dev
-                  </div>
-                </div>
-                {/* Screen Content Graphic */}
-                <div className="p-6 sm:p-10 bg-zinc-950 min-h-[180px] sm:min-h-[220px] flex flex-col justify-between text-white relative">
-                  <div className="flex items-center justify-between">
-                    <span className="font-stencil font-bold tracking-wider text-sm opacity-90">
-                      {project.title[lang]}
-                    </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 backdrop-blur">
-                      LIVE v2.4
-                    </span>
-                  </div>
-                  <div className="my-6">
-                    <div className="text-xs font-mono text-zinc-400 uppercase mb-1">
-                      System Active &bull; 99.9% Uptime
-                    </div>
-                    <div className="text-sm sm:text-base font-bold">
-                      {project.tagline[lang]}
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/60 border border-white/10 text-zinc-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              // HP Mobile Mockup Frame — Monochrome
-              <div className="w-64 sm:w-72 rounded-[2.5rem] border-4 border-zinc-700 bg-zinc-900 shadow-2xl p-2 overflow-hidden">
-                {/* Phone Speaker Notch */}
-                <div className="w-20 h-3.5 bg-zinc-800 rounded-full mx-auto mb-2 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-zinc-700" />
-                </div>
-                {/* Mobile Screen Content */}
-                <div className="rounded-[2rem] p-4 bg-zinc-950 min-h-[260px] flex flex-col justify-between text-white text-xs">
-                  <div className="flex items-center justify-between pt-1">
-                    <span className="font-bold text-[11px] font-stencil">
-                      DS APP
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-white" />
-                  </div>
-                  <div className="my-4">
-                    <div className="font-bold text-xs mb-1">
-                      {project.title[lang]}
-                    </div>
-                    <p className="text-[10px] text-zinc-400 leading-tight">
-                      Mobile Responsive Layout &bull; Optimized Touch
-                    </p>
-                  </div>
-                  <div className="p-2 rounded-xl bg-white/10 backdrop-blur text-[10px] font-mono text-zinc-300">
-                    Fast API &bull; Low Latency
-                  </div>
-                </div>
-                {/* Home Indicator */}
-                <div className="w-24 h-1 bg-zinc-700 rounded-full mx-auto mt-2" />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Detailed Sections: Masalah, Solusi, Hasil */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Masalah (Problem) */}
-          <div className="rounded-2xl p-5 bg-zinc-900/60 [data-theme='light']_&:bg-zinc-100 border border-zinc-800 [data-theme='light']_&:border-zinc-300">
-            <div className="text-xs font-mono text-zinc-400 font-bold uppercase mb-2 flex items-center gap-1.5">
-              <span>&bull;</span>
-              <span>{lang === "id" ? "MASALAH / PROBLEM" : "PROBLEM STATEMENT"}</span>
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-300 [data-theme='light']_&:text-zinc-700 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-zinc-400 [data-theme='light']_&:text-zinc-600 leading-relaxed mb-8">
               {project.problem[lang]}
             </p>
-          </div>
 
-          {/* Solusi (Solution) */}
-          <div className="rounded-2xl p-5 bg-zinc-900/60 [data-theme='light']_&:bg-zinc-100 border border-zinc-800 [data-theme='light']_&:border-zinc-300">
-            <div className="text-xs font-mono text-zinc-300 [data-theme='light']_&:text-zinc-800 font-bold uppercase mb-2 flex items-center gap-1.5">
-              <span>&bull;</span>
-              <span>{lang === "id" ? "SOLUSI & ARSITEKTUR" : "SOLUTION & ARCHITECTURE"}</span>
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-300 [data-theme='light']_&:text-zinc-700 leading-relaxed">
-              {project.solution[lang]}
-            </p>
-          </div>
-        </div>
-
-        {/* Hasil & Dampak (Key Metrics) */}
-        <div className="rounded-2xl p-5 bg-zinc-900/60 [data-theme='light']_&:bg-zinc-100 border border-zinc-800 [data-theme='light']_&:border-zinc-300 mb-8">
-          <div className="text-xs font-mono text-zinc-400 font-bold uppercase mb-3 flex items-center gap-1.5">
-            <Icons.sparkles className="w-3.5 h-3.5 text-zinc-300" />
-            <span>{lang === "id" ? "HASIL & DAMPAK PROYEK" : "KEY IMPACT & METRICS"}</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {project.metrics.map((metric, idx) => (
-              <div
-                key={idx}
-                className="p-3 rounded-xl bg-zinc-800/40 [data-theme='light']_&:bg-zinc-200 border border-zinc-700/60 [data-theme='light']_&:border-zinc-300 flex items-start gap-2.5"
-              >
-                <div className="p-1 rounded bg-zinc-700 text-white mt-0.5">
-                  <Icons.check className="w-3.5 h-3.5" />
+            {/* 2 Stat Cards Side-by-Side (Technologies Used & Key Features) */}
+            <div className="grid grid-cols-2 gap-4 max-w-md mb-6">
+              {/* Stat Card 1: Technologies Used */}
+              <div className="rounded-2xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 p-4 flex items-center gap-3.5 shadow-lg">
+                <div className="w-10 h-10 rounded-xl bg-zinc-800/80 [data-theme='light']_&:bg-zinc-100 border border-white/10 [data-theme='light']_&:border-zinc-300 flex items-center justify-center text-zinc-300 [data-theme='light']_&:text-zinc-700 shrink-0">
+                  <Icons.code className="w-4 h-4" />
                 </div>
-                <span className="text-xs text-zinc-200 [data-theme='light']_&:text-zinc-800 font-medium leading-snug">
-                  {metric[lang]}
-                </span>
+                <div>
+                  <div className="text-lg sm:text-xl font-bold text-white [data-theme='light']_&:text-black leading-tight">
+                    {project.techStack.length}
+                  </div>
+                  <div className="text-[11px] text-zinc-400 [data-theme='light']_&:text-zinc-500">
+                    Technologies Used
+                  </div>
+                </div>
               </div>
-            ))}
+
+              {/* Stat Card 2: Key Features */}
+              <div className="rounded-2xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 p-4 flex items-center gap-3.5 shadow-lg">
+                <div className="w-10 h-10 rounded-xl bg-zinc-800/80 [data-theme='light']_&:bg-zinc-100 border border-white/10 [data-theme='light']_&:border-zinc-300 flex items-center justify-center text-zinc-300 [data-theme='light']_&:text-zinc-700 shrink-0">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-4 h-4"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-lg sm:text-xl font-bold text-white [data-theme='light']_&:text-black leading-tight">
+                    {project.metrics.length}
+                  </div>
+                  <div className="text-[11px] text-zinc-400 [data-theme='light']_&:text-zinc-500">
+                    Key Features
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2 Action Buttons Side-by-Side (Live Demo / No Link & GitHub / No Link) */}
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-[#121215] hover:bg-zinc-800 [data-theme='light']_&:bg-white [data-theme='light']_&:hover:bg-zinc-100 border border-white/10 [data-theme='light']_&:border-zinc-300 text-xs font-medium text-zinc-200 [data-theme='light']_&:text-zinc-800 flex items-center gap-2 transition-colors"
+                >
+                  <Icons.external className="w-3.5 h-3.5" />
+                  <span>Live Demo</span>
+                </a>
+              ) : (
+                <div className="px-4 py-2.5 rounded-xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 text-xs font-medium text-zinc-400 [data-theme='light']_&:text-zinc-500 flex items-center gap-2">
+                  <Icons.external className="w-3.5 h-3.5" />
+                  <span>No Link</span>
+                </div>
+              )}
+
+              {project.githubUrl ? (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-[#121215] hover:bg-zinc-800 [data-theme='light']_&:bg-white [data-theme='light']_&:hover:bg-zinc-100 border border-white/10 [data-theme='light']_&:border-zinc-300 text-xs font-medium text-zinc-200 [data-theme='light']_&:text-zinc-800 flex items-center gap-2 transition-colors"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3.5 h-3.5"
+                  >
+                    <line x1="6" y1="3" x2="6" y2="15" />
+                    <circle cx="18" cy="6" r="3" />
+                    <circle cx="6" cy="18" r="3" />
+                    <path d="M18 9a9 9 0 0 1-9 9" />
+                  </svg>
+                  <span>Github</span>
+                </a>
+              ) : (
+                <div className="px-4 py-2.5 rounded-xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 text-xs font-medium text-zinc-400 [data-theme='light']_&:text-zinc-500 flex items-center gap-2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3.5 h-3.5"
+                  >
+                    <line x1="6" y1="3" x2="6" y2="15" />
+                    <circle cx="18" cy="6" r="3" />
+                    <circle cx="6" cy="18" r="3" />
+                    <path d="M18 9a9 9 0 0 1-9 9" />
+                  </svg>
+                  <span>No Link</span>
+                </div>
+              )}
+            </div>
+
+            {/* Technologies Used Section */}
+            <div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-white [data-theme='light']_&:text-black mb-3.5">
+                <Icons.code className="w-4 h-4 text-zinc-400" />
+                <span>Technologies Used</span>
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3.5 py-2 rounded-xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 text-xs font-medium text-zinc-300 [data-theme='light']_&:text-zinc-800 flex items-center gap-2 shadow-sm"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="w-3.5 h-3.5 text-zinc-400"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3.6 9h16.8M3.6 15h16.8" />
+                    </svg>
+                    <span>{tech}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Top Preview Showcase + Bottom Key Features Card */}
+          <div className="lg:col-span-6 space-y-6">
+            {/* Top Preview Card */}
+            <div className="rounded-3xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 p-4 sm:p-5 shadow-2xl overflow-hidden">
+              {/* View Switcher Pill Bar */}
+              {(project.desktopImage || project.mobileImage) && (
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="text-[11px] font-mono text-zinc-400 [data-theme='light']_&:text-zinc-500">
+                    {project.title[lang]} Preview
+                  </span>
+                  <div className="inline-flex items-center gap-1 p-1 rounded-full bg-zinc-900/90 [data-theme='light']_&:bg-zinc-100 border border-white/10 [data-theme='light']_&:border-zinc-300">
+                    <button
+                      onClick={() => setPreviewMode("desktop")}
+                      className={`px-3.5 py-1 rounded-full text-[11px] font-medium transition-colors cursor-pointer ${
+                        previewMode === "desktop"
+                          ? "bg-zinc-700 [data-theme='light']_&:bg-white text-white [data-theme='light']_&:text-black shadow"
+                          : "text-zinc-400 hover:text-white [data-theme='light']_&:hover:text-black"
+                      }`}
+                    >
+                      Desktop
+                    </button>
+                    <button
+                      onClick={() => setPreviewMode("mobile")}
+                      className={`px-3.5 py-1 rounded-full text-[11px] font-medium transition-colors cursor-pointer ${
+                        previewMode === "mobile"
+                          ? "bg-zinc-700 [data-theme='light']_&:bg-white text-white [data-theme='light']_&:text-black shadow"
+                          : "text-zinc-400 hover:text-white [data-theme='light']_&:hover:text-black"
+                      }`}
+                    >
+                      Mobile (HP)
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Preview Stage */}
+              <div className="relative rounded-2xl bg-[#0b0b0d] [data-theme='light']_&:bg-zinc-100 border border-white/5 [data-theme='light']_&:border-zinc-200 p-3 sm:p-5 flex items-center justify-center min-h-[260px] sm:min-h-[320px] overflow-hidden">
+                {previewMode === "desktop" && project.desktopImage ? (
+                  <div className="w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                    <img
+                      src={project.desktopImage}
+                      alt={`${project.title[lang]} Desktop`}
+                      className="w-full h-auto object-contain block"
+                    />
+                  </div>
+                ) : project.mobileImage ? (
+                  <div className="py-2 flex items-center justify-center">
+                    <MobilePhoneMockup
+                      screenImage={project.mobileImage}
+                      frameImage={project.mobileFrameImage}
+                      alt={`${project.title[lang]} Mobile`}
+                      className="w-60 sm:w-72 drop-shadow-[0_20px_35px_rgba(0,0,0,0.75)]"
+                    />
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            {/* Bottom Key Features Card (Matching Image 1) */}
+            <div className="rounded-3xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 p-6 sm:p-7 shadow-xl">
+              <div className="flex items-center gap-2.5 text-sm sm:text-base font-bold text-white [data-theme='light']_&:text-black mb-4">
+                <Icons.sparkles className="w-4 h-4 text-zinc-300 [data-theme='light']_&:text-zinc-700" />
+                <span>Key Features</span>
+              </div>
+              <ul className="space-y-3">
+                {project.metrics.map((feature, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-zinc-300 [data-theme='light']_&:text-zinc-700 leading-relaxed"
+                  >
+                    <span className="text-zinc-500 mt-0.5">&bull;</span>
+                    <span>{feature[lang]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-
-        {/* Tech Stack Chips */}
-        <div className="mb-8">
-          <div className="text-xs font-mono text-zinc-400 font-bold uppercase mb-3">
-            {lang === "id" ? "TEKNOLOGI YANG DIGUNAKAN" : "TECHNOLOGIES EMPLOYED"}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 rounded-lg bg-zinc-900 [data-theme='light']_&:bg-zinc-200 border border-zinc-800 [data-theme='light']_&:border-zinc-300 text-zinc-200 [data-theme='light']_&:text-zinc-800 font-mono text-xs font-semibold"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Action Buttons: Live Demo & Source Code — Monochrome */}
-        <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-zinc-800 [data-theme='light']_&:border-zinc-200">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 [data-theme='light']_&:bg-zinc-200 [data-theme='light']_&:hover:bg-zinc-300 border border-zinc-800 [data-theme='light']_&:border-zinc-300 text-zinc-200 [data-theme='light']_&:text-zinc-800 text-xs font-semibold flex items-center gap-2 transition-colors"
-            >
-              <Icons.github className="w-4 h-4" />
-              <span>Source Code</span>
-            </a>
-          )}
-
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-xl bg-white text-black [data-theme='light']_&:bg-black [data-theme='light']_&:text-white hover:bg-zinc-200 [data-theme='light']_&:hover:bg-zinc-800 text-xs font-bold shadow-lg flex items-center gap-2 transition-all hover:scale-105"
-            >
-              <Icons.external className="w-4 h-4" />
-              <span>Live Demo</span>
-            </a>
-          )}
-        </div>
-
       </div>
     </div>
   );

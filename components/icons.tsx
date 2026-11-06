@@ -6,7 +6,7 @@ interface IconProps {
 }
 
 export const Icons = {
-  // Brand Tech Icons
+  // ── 3D Brand Tech Icons ──
   laravel: ({ className = "w-5 h-5", size }: IconProps) => (
     <svg
       viewBox="0 0 24 24"
@@ -18,198 +18,619 @@ export const Icons = {
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
   ),
+
   laravelBrand: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <path
-        d="M22.5 8.2L18 5.6l-4.5 2.6v5.2l-4.5 2.6V5.6L4.5 3 0 5.6v10.4l9 5.2 9-5.2v-2.6l4.5-2.6V8.2z"
-        stroke="#FF2D20"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M0 5.6l4.5 2.6L9 5.6M4.5 8.2v10.4M13.5 8.2L18 10.8l4.5-2.6M18 10.8V16M9 16l4.5-2.6 4.5 2.6M9 21.2V16"
-        stroke="#FF2D20"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-    </svg>
-  ),
-  laravelReverb: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="#FF2D20" fillOpacity="0.14" stroke="#FF2D20" strokeWidth="1.5" />
-      <path
-        d="M6 12h2l1.5-4 3 8 2-6 1.5 2H18"
-        stroke="#FF2D20"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  ),
-  react: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none" className={className}>
-      <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
-      <g stroke="#61DAFB" strokeWidth="1" fill="none">
-        <ellipse rx="11" ry="4.2" />
-        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="laravel3dTop" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FF7A6B" />
+          <stop offset="100%" stopColor="#FF2D20" />
+        </linearGradient>
+        <linearGradient id="laravel3dLeft" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FF2D20" />
+          <stop offset="100%" stopColor="#B81409" />
+        </linearGradient>
+        <linearGradient id="laravel3dRight" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#E01E12" />
+          <stop offset="100%" stopColor="#7F0B04" />
+        </linearGradient>
+        <filter id="shadowLaravel3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#FF2D20" floodOpacity="0.4" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowLaravel3d)">
+        {/* Left Tall 3D Cube */}
+        <polygon points="18,8 30,15 18,22 6,15" fill="url(#laravel3dTop)" />
+        <polygon points="6,15 18,22 18,46 6,39" fill="url(#laravel3dLeft)" />
+        <polygon points="18,22 30,15 30,39 18,46" fill="url(#laravel3dRight)" />
+        {/* Bottom Center Connecting 3D Cube */}
+        <polygon points="30,32 42,39 30,46 18,39" fill="url(#laravel3dTop)" />
+        <polygon points="18,39 30,46 30,56 18,49" fill="url(#laravel3dLeft)" />
+        <polygon points="30,46 42,39 42,49 30,56" fill="url(#laravel3dRight)" />
+        {/* Right Floating 3D Cube */}
+        <polygon points="46,16 58,23 46,30 34,23" fill="url(#laravel3dTop)" />
+        <polygon points="34,23 46,30 46,44 34,37" fill="url(#laravel3dLeft)" />
+        <polygon points="46,30 58,23 58,37 46,44" fill="url(#laravel3dRight)" />
       </g>
     </svg>
   ),
-  nextjs: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 180 180" fill="none" className={className}>
-      <circle cx="90" cy="90" r="88" fill="#000000" stroke="#3F3F46" strokeWidth="4" />
-      <path
-        d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
-        fill="#FFFFFF"
-      />
-      <path d="M115 54H127V126H115V54Z" fill="#FFFFFF" />
-    </svg>
-  ),
-  vite: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 32 32" fill="none" className={className}>
-      <path
-        d="M29.8 6.2L16.8 29.4c-.4.7-1.4.7-1.8 0L2.2 6.2c-.4-.8.2-1.7 1.1-1.5l12.7 2.3c.2 0 .4 0 .5 0l12.2-2.3c.9-.2 1.5.7 1.1 1.5z"
-        fill="#646CFF"
-      />
-      <path
-        d="M22.2 3.1L12.8 5c-.3.1-.5.3-.5.6l-.6 10.2c0 .4.3.7.7.6l2.6-.6c.4-.1.8.3.7.7l-.8 3.8c-.1.5.4.9.8.6l.5-.3 7.2-14.2c.2-.5-.2-1-.7-.9l-2.3.5c-.4.1-.8-.3-.7-.7l.5-2.2z"
-        fill="#FFD62E"
-      />
-    </svg>
-  ),
+
   php: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 120 64" fill="none" className={className}>
-      <ellipse cx="60" cy="32" rx="56" ry="28" fill="#777BB4" stroke="#9CA3DB" strokeWidth="2" />
-      <text
-        x="60"
-        y="40"
-        textAnchor="middle"
-        fill="#111827"
-        fontWeight="900"
-        fontStyle="italic"
-        fontSize="30"
-        fontFamily="sans-serif"
-      >
-        php
-      </text>
+    <svg viewBox="0 0 80 64" fill="none" className={className}>
+      <defs>
+        <radialGradient id="php3dGrad" cx="35%" cy="25%" r="70%">
+          <stop offset="0%" stopColor="#B4B8E8" />
+          <stop offset="45%" stopColor="#777BB4" />
+          <stop offset="100%" stopColor="#3E4272" />
+        </radialGradient>
+        <linearGradient id="php3dExtrude" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#434778" />
+          <stop offset="100%" stopColor="#232544" />
+        </linearGradient>
+        <filter id="shadowPhp3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#777BB4" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowPhp3d)">
+        {/* 3D Extruded Bottom Rim */}
+        <ellipse cx="40" cy="36" rx="35" ry="20" fill="url(#php3dExtrude)" />
+        {/* 3D Glossy Top Body */}
+        <ellipse cx="40" cy="30" rx="35" ry="20" fill="url(#php3dGrad)" stroke="#C7CAF2" strokeWidth="1.2" />
+        {/* Top Specular Highlight */}
+        <ellipse cx="32" cy="20" rx="18" ry="6" fill="white" fillOpacity="0.22" />
+        {/* 3D Embossed Text */}
+        <text
+          x="40"
+          y="37"
+          textAnchor="middle"
+          fill="#1A1C35"
+          fontWeight="900"
+          fontStyle="italic"
+          fontSize="21"
+          fontFamily="sans-serif"
+        >
+          php
+        </text>
+        <text
+          x="40"
+          y="35.5"
+          textAnchor="middle"
+          fill="#FFFFFF"
+          fontWeight="900"
+          fontStyle="italic"
+          fontSize="21"
+          fontFamily="sans-serif"
+        >
+          php
+        </text>
+      </g>
     </svg>
   ),
+
+  laravelReverb: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="reverb3dFace" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FF758F" />
+          <stop offset="50%" stopColor="#F43F5E" />
+          <stop offset="100%" stopColor="#BE123C" />
+        </linearGradient>
+        <linearGradient id="reverb3dBase" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#9F1239" />
+          <stop offset="100%" stopColor="#4C0519" />
+        </linearGradient>
+        <filter id="shadowReverb3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#F43F5E" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowReverb3d)">
+        <rect x="8" y="14" width="48" height="42" rx="13" fill="url(#reverb3dBase)" />
+        <rect x="8" y="8" width="48" height="42" rx="13" fill="url(#reverb3dFace)" stroke="#FDA4AF" strokeWidth="1.2" />
+        <rect x="14" y="12" width="36" height="10" rx="5" fill="white" fillOpacity="0.2" />
+        <path
+          d="M15 30h6l4-10 7 20 5-14 4 4h8"
+          stroke="#881337"
+          strokeWidth="4.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15 28.5h6l4-10 7 20 5-14 4 4h8"
+          stroke="#FFFFFF"
+          strokeWidth="3.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+    </svg>
+  ),
+
+  nextjs: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <radialGradient id="next3dSphere" cx="32%" cy="25%" r="70%">
+          <stop offset="0%" stopColor="#52525B" />
+          <stop offset="45%" stopColor="#18181B" />
+          <stop offset="100%" stopColor="#000000" />
+        </radialGradient>
+        <linearGradient id="next3dSlash" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="70%" stopColor="#E4E4E7" />
+          <stop offset="100%" stopColor="#71717A" />
+        </linearGradient>
+        <filter id="shadowNext3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="7" stdDeviation="4" floodColor="#000000" floodOpacity="0.65" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowNext3d)">
+        {/* 3D Extruded Base */}
+        <circle cx="32" cy="36" r="24" fill="#09090B" stroke="#27272A" strokeWidth="1.5" />
+        {/* 3D Glossy Sphere */}
+        <circle cx="32" cy="30" r="24" fill="url(#next3dSphere)" stroke="#71717A" strokeWidth="1.2" />
+        {/* Specular Highlight */}
+        <ellipse cx="25" cy="18" rx="11" ry="5" fill="white" fillOpacity="0.16" />
+        {/* 3D N Monogram */}
+        <path
+          d="M22 41V19h4.5l18.5 24.5a24 24 0 0 1-3.8 2.8L26.2 26.2V41H22z"
+          fill="url(#next3dSlash)"
+        />
+        <rect x="38.5" y="19" width="4.2" height="15" rx="1" fill="#FFFFFF" />
+      </g>
+    </svg>
+  ),
+
+  react: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <radialGradient id="react3dCore" cx="35%" cy="30%" r="65%">
+          <stop offset="0%" stopColor="#E0F9FF" />
+          <stop offset="50%" stopColor="#61DAFB" />
+          <stop offset="100%" stopColor="#0284C7" />
+        </radialGradient>
+        <linearGradient id="react3dRing" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#A5F3FC" />
+          <stop offset="50%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="#0369A1" />
+        </linearGradient>
+        <filter id="shadowReact3d" x="-25%" y="-25%" width="150%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#38BDF8" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowReact3d)">
+        {/* Shadow Rings for 3D Depth */}
+        <g transform="translate(32, 34)" stroke="#0369A1" strokeWidth="3.2" opacity="0.55">
+          <ellipse rx="24" ry="9.5" />
+          <ellipse rx="24" ry="9.5" transform="rotate(60)" />
+          <ellipse rx="24" ry="9.5" transform="rotate(120)" />
+        </g>
+        {/* Main Glossy 3D Rings */}
+        <g transform="translate(32, 31)" stroke="url(#react3dRing)" strokeWidth="3.2">
+          <ellipse rx="24" ry="9.5" />
+          <ellipse rx="24" ry="9.5" transform="rotate(60)" />
+          <ellipse rx="24" ry="9.5" transform="rotate(120)" />
+        </g>
+        {/* 3D Nucleus Sphere */}
+        <circle cx="32" cy="31" r="6" fill="url(#react3dCore)" />
+        <circle cx="30" cy="29" r="1.8" fill="#FFFFFF" fillOpacity="0.8" />
+      </g>
+    </svg>
+  ),
+
+  vite: ({ className = "w-6 h-6" }: IconProps) => (
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="vite3dShield" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#41D1FF" />
+          <stop offset="55%" stopColor="#9333EA" />
+          <stop offset="100%" stopColor="#BD34FE" />
+        </linearGradient>
+        <linearGradient id="vite3dBolt" x1="0" y1="0" x2="0.5" y2="1">
+          <stop offset="0%" stopColor="#FFF7B2" />
+          <stop offset="45%" stopColor="#FFDD35" />
+          <stop offset="100%" stopColor="#FFA800" />
+        </linearGradient>
+        <filter id="shadowVite3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#9333EA" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowVite3d)">
+        {/* 3D Shield Depth */}
+        <path
+          d="M56 17L34.2 55.5c-1 1.7-3.4 1.7-4.4 0L8 17c-1-1.8.5-3.9 2.5-3.5l21.5 3.9 21.5-3.9c2-.4 3.5 1.7 2.5 3.5z"
+          fill="#4C1D95"
+        />
+        {/* 3D Shield Front */}
+        <path
+          d="M56 13L34.2 51.5c-1 1.7-3.4 1.7-4.4 0L8 13c-1-1.8.5-3.9 2.5-3.5l21.5 3.9 21.5-3.9c2-.4 3.5 1.7 2.5 3.5z"
+          fill="url(#vite3dShield)"
+        />
+        {/* 3D Lightning Bolt Depth */}
+        <path
+          d="M42 8L24 11.8l-1.2 19.5 5.2-1.2-1.5 7.5 1.5-1 14-27.5-4.5 1 1.5-4.1z"
+          fill="#B45309"
+          transform="translate(0, 2.5)"
+        />
+        {/* 3D Lightning Bolt Front */}
+        <path
+          d="M42 8L24 11.8l-1.2 19.5 5.2-1.2-1.5 7.5 1.5-1 14-27.5-4.5 1 1.5-4.1z"
+          fill="url(#vite3dBolt)"
+        />
+      </g>
+    </svg>
+  ),
+
   mysql: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <path
-        d="M19.5 18.5c-1.8-.4-3.2-1.5-4.1-3.1-.6-1.1-.9-2.2-1-3.4-.6.2-1.3.2-1.9 0-.8-.3-1.4-.9-1.9-1.6-.7-1-1.3-2.2-2.2-3-.8-.7-1.9-1.2-3-1.1-.5 0-1 .2-1.3.6-.3.4-.2 1 .1 1.4.5.7 1.3 1.1 2 1.6.9.7 1.7 1.6 2.1 2.7.3.8.4 1.7.3 2.5-.2 1.1-.8 2.1-1.6 2.9.9-.2 1.8-.6 2.5-1.2.6.9 1.5 1.6 2.5 2 1.7.7 3.7.7 5.5-.3z"
-        stroke="#00758F"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="7.5" cy="8.5" r="0.8" fill="#F29111" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="mysql3dTop" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="#00758F" />
+        </linearGradient>
+        <linearGradient id="mysql3dBody" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#0284C7" />
+          <stop offset="50%" stopColor="#00758F" />
+          <stop offset="100%" stopColor="#004B5C" />
+        </linearGradient>
+        <linearGradient id="mysql3dGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FDE047" />
+          <stop offset="100%" stopColor="#F29111" />
+        </linearGradient>
+        <filter id="shadowMysql3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#00758F" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowMysql3d)">
+        {/* Bottom 3D Cylinder Tier */}
+        <path d="M12 38v10c0 5 9 9 20 9s20-4 20-9V38H12z" fill="url(#mysql3dBody)" />
+        <ellipse cx="32" cy="38" rx="20" ry="8" fill="url(#mysql3dTop)" />
+        {/* Middle 3D Golden Ring Tier */}
+        <path d="M12 26v10c0 5 9 9 20 9s20-4 20-9V26H12z" fill="url(#mysql3dGold)" />
+        <ellipse cx="32" cy="26" rx="20" ry="8" fill="#FBBF24" />
+        {/* Top 3D Cylinder Tier */}
+        <path d="M12 14v10c0 5 9 9 20 9s20-4 20-9V14H12z" fill="url(#mysql3dBody)" />
+        <ellipse cx="32" cy="14" rx="20" ry="8" fill="url(#mysql3dTop)" stroke="#7DD3FC" strokeWidth="1" />
+        <ellipse cx="26" cy="12" rx="9" ry="3" fill="white" fillOpacity="0.28" />
+      </g>
     </svg>
   ),
+
   postgresql: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <ellipse cx="12" cy="6" rx="8" ry="3.2" fill="#336791" fillOpacity="0.25" stroke="#336791" strokeWidth="1.8" />
-      <path d="M4 6v6c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6" stroke="#336791" strokeWidth="1.8" />
-      <path d="M4 12v6c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-6" stroke="#5B9BD5" strokeWidth="1.8" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <radialGradient id="pg3dShield" cx="35%" cy="25%" r="70%">
+          <stop offset="0%" stopColor="#60A5FA" />
+          <stop offset="55%" stopColor="#336791" />
+          <stop offset="100%" stopColor="#1E3A5F" />
+        </radialGradient>
+        <filter id="shadowPg3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#336791" floodOpacity="0.5" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowPg3d)">
+        {/* 3D Extruded Shield Base */}
+        <path d="M12 16c0-5 9-8 20-8s20 3 20 8v22c0 11-9 18-20 21-11-3-20-10-20-21V16z" fill="#172B46" transform="translate(0, 4)" />
+        {/* 3D Glossy Shield Front */}
+        <path d="M12 16c0-5 9-8 20-8s20 3 20 8v22c0 11-9 18-20 21-11-3-20-10-20-21V16z" fill="url(#pg3dShield)" stroke="#93C5FD" strokeWidth="1.2" />
+        {/* 3D Elephant / Trunk Emblem */}
+        <path
+          d="M22 24c0-5 4.5-9 10-9s10 4 10 9v10c0 5.5-3.5 9-8 9-2.5 0-4-1.5-4-4v-6"
+          stroke="#FFFFFF"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+        />
+        <circle cx="27" cy="25" r="2" fill="#FFFFFF" />
+        <circle cx="37" cy="25" r="2" fill="#FFFFFF" />
+      </g>
     </svg>
   ),
+
   supabase: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <path
-        d="M13.5 21.6c-.6.8-1.8.3-1.8-.7V13h7.8c.9 0 1.4 1 .8 1.7l-6.8 6.9z"
-        fill="#249361"
-      />
-      <path
-        d="M10.5 2.4c.6-.8 1.8-.3 1.8.7V11H4.5c-.9 0-1.4-1-.8-1.7l6.8-6.9z"
-        fill="#3ECF8E"
-      />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="supa3dFront" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#6EE7B7" />
+          <stop offset="50%" stopColor="#3ECF8E" />
+          <stop offset="100%" stopColor="#059669" />
+        </linearGradient>
+        <linearGradient id="supa3dBack" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#065F46" />
+        </linearGradient>
+        <filter id="shadowSupa3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#3ECF8E" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowSupa3d)">
+        {/* 3D Depth Bolt */}
+        <path
+          d="M35.5 55.5c-1.5 1.9-4.5.8-4.5-1.6V35h19c2.2 0 3.5 2.5 2 4.2l-16.5 16.3z"
+          fill="#064E3B"
+          transform="translate(0, 3)"
+        />
+        <path
+          d="M35.5 55.5c-1.5 1.9-4.5.8-4.5-1.6V35h19c2.2 0 3.5 2.5 2 4.2l-16.5 16.3z"
+          fill="url(#supa3dBack)"
+        />
+        <path
+          d="M28.5 8.5c1.5-1.9 4.5-.8 4.5 1.6V29H14c-2.2 0-3.5-2.5-2-4.2L28.5 8.5z"
+          fill="#047857"
+          transform="translate(0, 3)"
+        />
+        <path
+          d="M28.5 8.5c1.5-1.9 4.5-.8 4.5 1.6V29H14c-2.2 0-3.5-2.5-2-4.2L28.5 8.5z"
+          fill="url(#supa3dFront)"
+        />
+      </g>
     </svg>
   ),
+
   esp32: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <rect x="5" y="4" width="14" height="16" rx="2" stroke="#E53935" strokeWidth="1.8" />
-      <path d="M9 8h6M9 12h6M9 16h3" stroke="#E53935" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M2 7h3M2 12h3M2 17h3M19 7h3M19 12h3M19 17h3" stroke="#E53935" strokeWidth="1.8" strokeLinecap="round" />
-      <circle cx="16" cy="16" r="1" fill="#E53935" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="esp3dChip" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FF6B6B" />
+          <stop offset="50%" stopColor="#E53935" />
+          <stop offset="100%" stopColor="#991B1B" />
+        </linearGradient>
+        <linearGradient id="esp3dPins" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#FDE047" />
+          <stop offset="100%" stopColor="#CA8A04" />
+        </linearGradient>
+        <filter id="shadowEsp3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#E53935" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowEsp3d)">
+        {/* Metallic Gold 3D Pins Left & Right */}
+        <rect x="6" y="16" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="6" y="26" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="6" y="36" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="6" y="46" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="50" y="16" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="50" y="26" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="50" y="36" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        <rect x="50" y="46" width="8" height="4" rx="1.5" fill="url(#esp3dPins)" />
+        {/* 3D PCB Base Depth */}
+        <rect x="13" y="13" width="38" height="44" rx="6" fill="#7F1D1D" />
+        {/* 3D PCB Top Body */}
+        <rect x="13" y="8" width="38" height="44" rx="6" fill="url(#esp3dChip)" stroke="#FCA5A5" strokeWidth="1.2" />
+        {/* Inner Silver RF Shield Box */}
+        <rect x="19" y="16" width="26" height="22" rx="3" fill="#27272A" stroke="#A1A1AA" strokeWidth="1.5" />
+        <text x="32" y="30" textAnchor="middle" fill="#FFFFFF" fontWeight="900" fontSize="7.5" fontFamily="monospace">
+          ESP32
+        </text>
+        <circle cx="41" cy="45" r="2.2" fill="#FDE047" />
+      </g>
     </svg>
   ),
+
   ubuntu: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <circle cx="12" cy="12" r="10" fill="#E95420" />
-      <circle cx="12" cy="12" r="4.5" stroke="#FFFFFF" strokeWidth="1.8" />
-      <circle cx="6.2" cy="12" r="1.6" fill="#FFFFFF" />
-      <circle cx="14.9" cy="7" r="1.6" fill="#FFFFFF" />
-      <circle cx="14.9" cy="17" r="1.6" fill="#FFFFFF" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <radialGradient id="ubuntu3dSphere" cx="35%" cy="25%" r="70%">
+          <stop offset="0%" stopColor="#FF8A5B" />
+          <stop offset="50%" stopColor="#E95420" />
+          <stop offset="100%" stopColor="#9A2B06" />
+        </radialGradient>
+        <filter id="shadowUbuntu3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#E95420" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowUbuntu3d)">
+        {/* 3D Base Extrusion */}
+        <circle cx="32" cy="35" r="24" fill="#7C2D12" />
+        {/* 3D Glossy Sphere */}
+        <circle cx="32" cy="30" r="24" fill="url(#ubuntu3dSphere)" stroke="#FDBA74" strokeWidth="1.2" />
+        <ellipse cx="24" cy="18" rx="11" ry="5" fill="white" fillOpacity="0.22" />
+        {/* Circle of Friends */}
+        <circle cx="32" cy="30" r="10.5" stroke="#FFFFFF" strokeWidth="3.8" />
+        <circle cx="17.5" cy="30" r="3.8" fill="#FFFFFF" stroke="#E95420" strokeWidth="1.2" />
+        <circle cx="39.2" cy="17.5" r="3.8" fill="#FFFFFF" stroke="#E95420" strokeWidth="1.2" />
+        <circle cx="39.2" cy="42.5" r="3.8" fill="#FFFFFF" stroke="#E95420" strokeWidth="1.2" />
+      </g>
     </svg>
   ),
+
   apache: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <path
-        d="M18.5 3.5c-4 1.5-8.5 6-11.5 12.5L5 20.5l2-1.5c5.5-2.5 10.5-7.5 11.5-15.5z"
-        fill="#D22128"
-      />
-      <path
-        d="M18.5 3.5c-2 4.5-6 9.5-11.5 15.5"
-        stroke="#F57C00"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-      <path d="M13 9.5l3.5.5M10.5 13l3.5.5" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="apache3dFeather" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#F59E0B" />
+          <stop offset="45%" stopColor="#D22128" />
+          <stop offset="100%" stopColor="#7E22CE" />
+        </linearGradient>
+        <filter id="shadowApache3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#D22128" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowApache3d)">
+        {/* 3D Feather Shadow Layer */}
+        <path
+          d="M49 9C36 13 22 27 14 45l-4 10 5-3c14-7 28-21 34-43z"
+          fill="#4C1D95"
+          transform="translate(0, 3.5)"
+        />
+        {/* 3D Feather Main Body */}
+        <path
+          d="M49 9C36 13 22 27 14 45l-4 10 5-3c14-7 28-21 34-43z"
+          fill="url(#apache3dFeather)"
+          stroke="#FCA5A5"
+          strokeWidth="1"
+        />
+        <path
+          d="M49 9C42 23 30 38 14 51"
+          stroke="#FEF08A"
+          strokeWidth="2.8"
+          strokeLinecap="round"
+        />
+        <path d="M35 23l9 1.5M28 32l9 1.5M21 41l8 1.5" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" />
+      </g>
     </svg>
   ),
+
   nginx: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <polygon
-        points="12,2 20.66,7 20.66,17 12,22 3.34,17 3.34,7"
-        fill="#009639"
-      />
-      <path
-        d="M8.5 16V8l7 8V8"
-        stroke="#FFFFFF"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="nginx3dHex" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#34D399" />
+          <stop offset="50%" stopColor="#009639" />
+          <stop offset="100%" stopColor="#065F46" />
+        </linearGradient>
+        <filter id="shadowNginx3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#009639" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowNginx3d)">
+        {/* 3D Extruded Bottom Hexagon */}
+        <polygon points="32,10 54,22 54,47 32,59 10,47 10,22" fill="#064E3B" />
+        {/* 3D Top Glossy Hexagon */}
+        <polygon
+          points="32,5 54,17 54,42 32,54 10,42 10,17"
+          fill="url(#nginx3dHex)"
+          stroke="#6EE7B7"
+          strokeWidth="1.2"
+        />
+        {/* 3D Embossed N */}
+        <path
+          d="M23 40V20l18 20V20"
+          stroke="#064E3B"
+          strokeWidth="5.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          transform="translate(0, 2)"
+        />
+        <path
+          d="M23 40V20l18 20V20"
+          stroke="#FFFFFF"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
     </svg>
   ),
+
   pm2: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <rect x="2" y="4" width="20" height="16" rx="4" fill="#2B037A" stroke="#7C3AED" strokeWidth="1.5" />
-      <text
-        x="12"
-        y="15"
-        textAnchor="middle"
-        fill="#38BDF8"
-        fontWeight="900"
-        fontSize="8.5"
-        fontFamily="monospace"
-      >
-        PM2
-      </text>
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="pm23dBox" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#8B5CF6" />
+          <stop offset="50%" stopColor="#4C1D95" />
+          <stop offset="100%" stopColor="#1E1B4B" />
+        </linearGradient>
+        <filter id="shadowPm23d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#7C3AED" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowPm23d)">
+        <rect x="6" y="16" width="52" height="40" rx="12" fill="#1E1B4B" />
+        <rect x="6" y="10" width="52" height="40" rx="12" fill="url(#pm23dBox)" stroke="#C4B5FD" strokeWidth="1.2" />
+        <rect x="12" y="14" width="40" height="10" rx="5" fill="white" fillOpacity="0.16" />
+        <text
+          x="32"
+          y="37"
+          textAnchor="middle"
+          fill="#38BDF8"
+          fontWeight="900"
+          fontSize="18"
+          fontFamily="monospace"
+        >
+          PM2
+        </text>
+      </g>
     </svg>
   ),
+
   bind9: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <circle cx="12" cy="12" r="9" stroke="#0284C7" strokeWidth="1.8" />
-      <ellipse cx="12" cy="12" rx="4" ry="9" stroke="#38BDF8" strokeWidth="1.5" />
-      <path d="M3.5 9h17M3.5 15h17" stroke="#0284C7" strokeWidth="1.5" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <radialGradient id="bind3dGlobe" cx="35%" cy="25%" r="70%">
+          <stop offset="0%" stopColor="#7DD3FC" />
+          <stop offset="50%" stopColor="#0284C7" />
+          <stop offset="100%" stopColor="#0C4A6E" />
+        </radialGradient>
+        <filter id="shadowBind3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#0284C7" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowBind3d)">
+        <circle cx="32" cy="35" r="23" fill="#082F49" />
+        <circle cx="32" cy="30" r="23" fill="url(#bind3dGlobe)" stroke="#BAE6FD" strokeWidth="1.2" />
+        <ellipse cx="32" cy="30" rx="10" ry="22" stroke="#E0F2FE" strokeWidth="2.2" />
+        <path d="M10 23h44M10 37h44" stroke="#E0F2FE" strokeWidth="2.2" />
+        <rect x="18" y="24" width="28" height="12" rx="4" fill="#0C4A6E" stroke="#7DD3FC" strokeWidth="1" />
+        <text x="32" y="33" textAnchor="middle" fill="#FFFFFF" fontWeight="900" fontSize="9" fontFamily="monospace">
+          DNS
+        </text>
+      </g>
     </svg>
   ),
+
   cloudflare: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <path
-        d="M17.5 18H6.8c-2.3 0-4.3-1.8-4.3-4.1 0-2 1.4-3.7 3.4-4 .7-2.8 3.2-4.9 6.3-4.9 3.2 0 5.9 2.3 6.4 5.4 1.7.3 2.9 1.8 2.9 3.6 0 2.2-1.8 4-4 4z"
-        fill="#F38020"
-      />
-      <path d="M9 14h6m0 0l-2-2m2 2l-2 2" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="cf3dCloud" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FDBA74" />
+          <stop offset="45%" stopColor="#F38020" />
+          <stop offset="100%" stopColor="#C2410C" />
+        </linearGradient>
+        <filter id="shadowCf3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#F38020" floodOpacity="0.45" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowCf3d)">
+        {/* 3D Cloud Extrusion Base */}
+        <path
+          d="M47 49H18c-6.5 0-11.5-5-11.5-11.2 0-5.4 3.8-10 9-11C17.4 19.2 24 13.5 32.5 13.5c8.8 0 16 6.2 17.5 14.6 4.5.8 8 4.8 8 9.7 0 6.2-4.8 11.2-11 11.2z"
+          fill="#7C2D12"
+          transform="translate(0, 4)"
+        />
+        {/* 3D Glossy Cloud Front */}
+        <path
+          d="M47 49H18c-6.5 0-11.5-5-11.5-11.2 0-5.4 3.8-10 9-11C17.4 19.2 24 13.5 32.5 13.5c8.8 0 16 6.2 17.5 14.6 4.5.8 8 4.8 8 9.7 0 6.2-4.8 11.2-11 11.2z"
+          fill="url(#cf3dCloud)"
+          stroke="#FED7AA"
+          strokeWidth="1.2"
+        />
+        <ellipse cx="29" cy="22" rx="10" ry="4" fill="white" fillOpacity="0.24" />
+        {/* 3D Tunnel Arrow */}
+        <path
+          d="M23 36h18m0 0l-5-5m5 5l-5 5"
+          stroke="#FFFFFF"
+          strokeWidth="3.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
     </svg>
   ),
+
   vercel: ({ className = "w-6 h-6" }: IconProps) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <polygon points="12,3 22,20 2,20" />
+    <svg viewBox="0 0 64 64" fill="none" className={className}>
+      <defs>
+        <linearGradient id="vercel3dLeft" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="100%" stopColor="#D4D4D8" />
+        </linearGradient>
+        <linearGradient id="vercel3dRight" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#A1A1AA" />
+          <stop offset="100%" stopColor="#52525B" />
+        </linearGradient>
+        <filter id="shadowVercel3d" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="7" stdDeviation="4" floodColor="#000000" floodOpacity="0.55" />
+        </filter>
+      </defs>
+      <g filter="url(#shadowVercel3d)">
+        {/* 3D Pyramid Base Extrusion */}
+        <polygon points="32,12 58,54 6,54" fill="#27272A" />
+        {/* 3D Pyramid Lit Left Facet */}
+        <polygon points="32,8 32,50 6,50" fill="url(#vercel3dLeft)" />
+        {/* 3D Pyramid Shaded Right Facet */}
+        <polygon points="32,8 58,50 32,50" fill="url(#vercel3dRight)" />
+      </g>
     </svg>
   ),
+
   n8n: ({ className = "w-6 h-6" }: IconProps) => (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
       <circle cx="6" cy="12" r="3" stroke="#EA4B71" strokeWidth="2" />

@@ -17,6 +17,9 @@ export interface Project {
   laptopMockup: string;
   mobileMockup: string;
   accentColor: string;
+  desktopImage?: string;
+  mobileImage?: string;
+  mobileFrameImage?: string;
 }
 
 export interface OtherProject {
@@ -66,296 +69,56 @@ export interface SkillCategory {
 
 export const initialProjects: Project[] = [
   {
-    id: "dignify-web",
+    id: "kebaya-kanae",
     title: {
-      id: "Platform Digital & Portal Dignify Studio",
-      en: "Dignify Studio Digital Platform & Portal",
+      id: "Kebaya Kanae",
+      en: "Kebaya Kanae",
     },
     category: "webapp",
     categoryLabel: { id: "Web App", en: "Web App" },
     tagline: {
-      id: "Sistem web interaktif modern dengan performa tinggi & integrasi workflow",
-      en: "High-performance interactive web system with modern workflow integration",
+      id: "Platform katalog & penyewaan kebaya modern dengan pengalaman responsif di Desktop dan Mobile",
+      en: "Modern kebaya catalog & rental platform with seamless Desktop and Mobile responsiveness",
     },
     problem: {
-      id: "Dignify Studio membutuhkan portal terpadu untuk showcase karya multimedia, penerimaan order proyek client, serta monitoring progres pesanan yang sebelumnya tersebar di berbagai spreadsheet manual.",
-      en: "Dignify Studio needed an integrated portal for showcasing multimedia works, accepting client orders, and tracking project progress that was previously scattered across manual spreadsheets.",
+      id: "Kebaya Kanae adalah platform katalog dan penyewaan busana kebaya yang disusun secara sistematis untuk memudahkan pelanggan melihat koleksi kebaya terbaik, memeriksa detail ukuran (LD), harga sewa, serta status ketersediaan stok secara langsung tanpa harus bertanya manual satu per satu.",
+      en: "Kebaya Kanae is a systematically structured kebaya catalog and rental web platform designed to let customers explore curated collections, inspect size details, check rental pricing, and view real-time stock availability effortlessly.",
     },
     solution: {
-      id: "Membangun sistem web responsif fullstack dengan Laravel & React. Dilengkapi panel manajemen proyek real-time, integrasi notifikasi otomatis via webhook, serta antarmuka visual bergaya studio modern.",
-      en: "Built a responsive fullstack web platform using Laravel & React, featuring a real-time project management dashboard, automated webhook notifications, and a modern studio visual interface.",
-    },
-    role: {
-      id: "Lead Web Developer & System Architect",
-      en: "Lead Web Developer & System Architect",
-    },
-    techStack: ["Laravel", "React", "Next.js", "MySQL", "Tailwind CSS", "n8n"],
-    metrics: [
-      { id: "Peningkatan konversi inquiry klien hingga 45%", en: "45% increase in client inquiry conversions" },
-      { id: "Waktu loading halaman < 1.2 detik (Skor Lighthouse 98)", en: "Page load speed < 1.2s (98 Lighthouse score)" },
-      { id: "Mengurangi 70% waktu pencatatan order manual", en: "Reduced 70% of manual order logging time" },
-    ],
-    liveUrl: "https://dignifystudio.com",
-    githubUrl: "https://github.com/danielsinurat/dignify-web",
-    featured: true,
-    laptopMockup: "bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900",
-    mobileMockup: "bg-gradient-to-b from-indigo-950 to-slate-900",
-    accentColor: "#6366F1",
-  },
-  {
-    id: "iot-smart-telemetry",
-    title: {
-      id: "Sistem Monitoring & Telemetri IoT ESP32",
-      en: "ESP32 IoT Telemetry & Smart Monitoring System",
-    },
-    category: "iot",
-    categoryLabel: { id: "IoT & Hardware", en: "IoT & Hardware" },
-    tagline: {
-      id: "Dashboard kontrol sensor real-time dengan komunikasi WebSocket & ESP32",
-      en: "Real-time sensor control dashboard with WebSocket communication & ESP32",
-    },
-    problem: {
-      id: "Pemantauan lingkungan dan perangkat hardware di lapangan seringkali terlambat karena data hanya direkam secara offline tanpa peringatan dini terhadap anomali suhu dan kelembaban.",
-      en: "Environmental and hardware field monitoring suffered from severe delays as data was only recorded offline without early alerts for temperature and humidity anomalies.",
-    },
-    solution: {
-      id: "Merancang node sensor berbasis mikrokontroler ESP32 yang terhubung ke cloud server melalui protokol MQTT dan WebSocket. Menghadirkan web dashboard interaktif dengan visualisasi grafik live serta webhook n8n untuk bot peringatan Telegram.",
-      en: "Designed ESP32 microcontroller sensor nodes streaming data to cloud servers via MQTT & WebSocket. Built an interactive web dashboard with live charts and n8n webhook alerts sent to Telegram.",
-    },
-    role: {
-      id: "IoT Engineer & Fullstack Developer",
-      en: "IoT Engineer & Fullstack Developer",
-    },
-    techStack: ["ESP32", "Arduino C++", "Next.js", "Node.js", "MySQL", "n8n"],
-    metrics: [
-      { id: "Latensi data telemetry real-time di bawah 250ms", en: "Real-time telemetry latency under 250ms" },
-      { id: "Notifikasi anomali terkirim dalam waktu 3 detik", en: "Anomaly notifications delivered in under 3 seconds" },
-      { id: "Penghematan konsumsi daya perangkat hingga 35%", en: "Device power consumption reduced by 35%" },
-    ],
-    liveUrl: "https://iot-telemetry.danielsinurat.dev",
-    githubUrl: "https://github.com/danielsinurat/esp32-telemetry-iot",
-    featured: true,
-    laptopMockup: "bg-gradient-to-br from-teal-950 via-slate-900 to-emerald-950",
-    mobileMockup: "bg-gradient-to-b from-teal-950 to-slate-900",
-    accentColor: "#10B981",
-  },
-  {
-    id: "smart-pos-resto",
-    title: {
-      id: "Sistem Kasir & Manajemen Inventori Kafe",
-      en: "Smart Resto POS & Inventory Management System",
-    },
-    category: "webapp",
-    categoryLabel: { id: "Web App", en: "Web App" },
-    tagline: {
-      id: "Aplikasi POS kasir cepat dengan cetak struk thermal & analitik penjualan",
-      en: "Ultra-fast POS cashier app with thermal receipt printing & sales analytics",
-    },
-    problem: {
-      id: "Kafe lokal mengalami antrean panjang saat jam sibuk dan sering kehabisan stok bahan baku tanpa peringatan otomatis.",
-      en: "A local cafe experienced long queues during peak hours and frequent ingredient stockouts due to lack of real-time inventory tracking.",
-    },
-    solution: {
-      id: "Mengembangkan aplikasi web berbasis Laravel dan React dengan arsitektur SPA yang sangat responsif, dukungan offline-first, pencetakan struk Bluetooth/Thermal, dan pelacakan inventori otomatis per menu.",
-      en: "Engineered a high-speed Laravel & React single-page POS web application with offline-first support, Bluetooth thermal printing, and automated recipe-level inventory deductions.",
+      id: "Dirancang dengan tampilan yang elegan dan responsif baik di layar Desktop maupun HP (Mobile), dilengkapi pencarian instan, filter koleksi, label produk (Best Seller & Exclusive), serta navigasi bawah bergaya aplikasi mobile.",
+      en: "Engineered with an elegant, responsive interface across Desktop and Mobile screens, complete with instant search, smart filtering, product badges (Best Seller & Exclusive), and an app-like mobile bottom navigation bar.",
     },
     role: {
       id: "Fullstack Web Developer",
       en: "Fullstack Web Developer",
     },
-    techStack: ["Laravel", "PHP", "React", "MySQL", "Tailwind CSS"],
+    techStack: ["Laravel", "Tailwind CSS", "MySQL"],
     metrics: [
-      { id: "Waktu transaksi per pelanggan berkurang 50%", en: "Transaction time per customer reduced by 50%" },
-      { id: "100% akurasi pencocokan kas harian", en: "100% daily cash reconciliation accuracy" },
-      { id: "Laporan otomatis harian via n8n ke email pemilik", en: "Automated daily reports sent to owner via n8n" },
+      {
+        id: "Katalog penyewaan kebaya interaktif dengan pencarian & filter pintar",
+        en: "Interactive kebaya rental catalog with instant search & smart filters",
+      },
+      {
+        id: "Tampilan keren, elegan, dan full responsif di Desktop maupun HP (Mobile)",
+        en: "Elegant, modern UI fully responsive across Desktop and Mobile devices",
+      },
+      {
+        id: "Fitur lengkap: detail ukuran (LD), label koleksi, status stok Ready, dan tombol sewa instan",
+        en: "Complete features: size specs, collection badges, real-time Ready status, and instant booking",
+      },
     ],
-    liveUrl: "https://pos-resto.danielsinurat.dev",
-    githubUrl: "https://github.com/danielsinurat/laravel-pos-smart",
+    liveUrl: "https://kebayakanae.my.id/",
     featured: true,
-    laptopMockup: "bg-gradient-to-br from-amber-950 via-slate-900 to-orange-950",
-    mobileMockup: "bg-gradient-to-b from-amber-950 to-slate-900",
-    accentColor: "#F59E0B",
-  },
-  {
-    id: "n8n-crm-automation",
-    title: {
-      id: "Automasi Workflow CRM & WhatsApp Gateway",
-      en: "CRM Automation & WhatsApp Multi-Channel Gateway",
-    },
-    category: "automation",
-    categoryLabel: { id: "Automation", en: "Automation" },
-    tagline: {
-      id: "Otomasi leads, follow-up WhatsApp instan & sinkronisasi database pelanggan",
-      en: "Automated lead intake, instant WhatsApp follow-ups & customer DB sync",
-    },
-    problem: {
-      id: "Tim sales kehilangan 40% calon klien potensial karena respon lambat pada chat masuk di luar jam kerja serta input data manual yang repetitif.",
-      en: "Sales team lost 40% of potential leads due to delayed responses to off-hours inquiries and repetitive manual lead data entry.",
-    },
-    solution: {
-      id: "Merancang pipeline automasi cerdas n8n yang menghubungkan formulir web portfolio, WhatsApp Business API, dan database MySQL secara instan dengan auto-routing pesan cerdas.",
-      en: "Architected an n8n automation pipeline connecting web portfolio forms, WhatsApp Business API, and MySQL database with intelligent auto-reply and routing.",
-    },
-    role: {
-      id: "Automation Engineer & Integrator",
-      en: "Automation Engineer & Integrator",
-    },
-    techStack: ["n8n", "Node.js", "MySQL", "REST API", "Docker"],
-    metrics: [
-      { id: "Waktu respon pertama turun dari 3 jam menjadi 15 detik", en: "First-response time dropped from 3 hours to 15s" },
-      { id: "100% otomatisasi data entry ke CRM", en: "100% automated lead ingestion into CRM" },
-      { id: "Mampu memproses hingga 5.000 webhook/hari", en: "Handles over 5,000 webhooks daily without fail" },
-    ],
-    liveUrl: "https://automation.danielsinurat.dev",
-    githubUrl: "https://github.com/danielsinurat/n8n-workflow-integrations",
-    featured: true,
-    laptopMockup: "bg-gradient-to-br from-purple-950 via-slate-900 to-indigo-950",
-    mobileMockup: "bg-gradient-to-b from-purple-950 to-slate-900",
-    accentColor: "#8B5CF6",
-  },
-  {
-    id: "campus-information-system",
-    title: {
-      id: "Sistem Informasi Akademik & Portofolio Mahasiswa (PBL UB)",
-      en: "Academic Information & Student Portfolio System (UB PBL)",
-    },
-    category: "webapp",
-    categoryLabel: { id: "Web App", en: "Web App" },
-    tagline: {
-      id: "Portal akademik terpadu dengan autentikasi multi-role & manajemen berkas",
-      en: "Integrated academic portal with multi-role authentication & document management",
-    },
-    problem: {
-      id: "Proses pengumpulan portofolio dan verifikasi tugas akhir mahasiswa di program studi D-III TI masih membutuhkan penyerahan fisik dan rawan hilang.",
-      en: "Collection of final project portfolios and verification in D-III IT program required physical submissions and was prone to lost records.",
-    },
-    solution: {
-      id: "Mengembangkan platform portal berbasis Laravel dan Bootstrap/Tailwind dengan hak akses Dosen, Mahasiswa, dan Admin. Dilengkapi preview berkas online dan status approval bertingkat.",
-      en: "Built a robust Laravel web portal with role-based access control (Lecturers, Students, Admins), featuring online document previews and staged review approvals.",
-    },
-    role: {
-      id: "Fullstack Developer (Team Lead PBL)",
-      en: "Fullstack Developer (PBL Team Lead)",
-    },
-    techStack: ["Laravel", "PHP", "MySQL", "Bootstrap", "REST API"],
-    metrics: [
-      { id: "Digunakan oleh 200+ mahasiswa aktif dan dosen", en: "Used by 200+ active students and faculty" },
-      { id: "Memangkas waktu verifikasi berkas dari 5 hari ke 1 hari", en: "Cut document verification from 5 days to 1 day" },
-      { id: "Mendapat nilai A pada evaluasi Project Based Learning", en: "Achieved Grade A in UB Project Based Learning evaluation" },
-    ],
-    liveUrl: "https://si-akademik.danielsinurat.dev",
-    githubUrl: "https://github.com/danielsinurat/si-portofolio-ub",
-    featured: false,
-    laptopMockup: "bg-gradient-to-br from-blue-950 via-slate-900 to-cyan-950",
-    mobileMockup: "bg-gradient-to-b from-blue-950 to-slate-900",
-    accentColor: "#3B82F6",
-  },
-  {
-    id: "creative-studio-uiux",
-    title: {
-      id: "Desain Sistem & UI/UX Studio Kreatif",
-      en: "Creative Studio UI/UX & Design System",
-    },
-    category: "uiux",
-    categoryLabel: { id: "UI/UX", en: "UI/UX" },
-    tagline: {
-      id: "Design system komprehensif, panduan tipografi & antarmuka digital",
-      en: "Comprehensive design system, typography guidelines & digital UI",
-    },
-    problem: {
-      id: "Inkonsistensi visual antar halaman website dan materi pemasaran digital studio menurunkan persepsi profesionalitas brand.",
-      en: "Visual inconsistency across website pages and studio digital marketing materials diluted brand professionalism.",
-    },
-    solution: {
-      id: "Merancang design tokens, library komponen Figma interaktif, dan panduan layout responsif yang diimplementasikan langsung ke kode Tailwind CSS.",
-      en: "Designed unified design tokens, interactive Figma component libraries, and responsive layout guidelines implemented straight into Tailwind CSS.",
-    },
-    role: {
-      id: "UI/UX Designer & Frontend Developer",
-      en: "UI/UX Designer & Frontend Developer",
-    },
-    techStack: ["Figma", "Tailwind CSS", "React", "Next.js"],
-    metrics: [
-      { id: "50+ komponen reusable siap pakai", en: "50+ production-ready reusable components" },
-      { id: "Mempercepat waktu delivery fitur baru sebesar 40%", en: "Accelerated new feature delivery by 40%" },
-    ],
-    liveUrl: "https://ui-system.danielsinurat.dev",
-    githubUrl: "https://github.com/danielsinurat/studio-design-system",
-    featured: false,
-    laptopMockup: "bg-gradient-to-br from-pink-950 via-slate-900 to-purple-950",
-    mobileMockup: "bg-gradient-to-b from-pink-950 to-slate-900",
+    laptopMockup: "bg-gradient-to-br from-rose-950 via-zinc-900 to-stone-900",
+    mobileMockup: "bg-gradient-to-b from-rose-950 to-zinc-900",
     accentColor: "#EC4899",
+    desktopImage: "/images/project/kebayakanae(desktop).png",
+    mobileImage: "/images/project/kebayakanae(mobile).png",
+    mobileFrameImage: "/images/project/layoutmobile.png",
   },
 ];
 
-export const initialOtherProjects: OtherProject[] = [
-  {
-    id: "esp32-greenhouse",
-    title: "ESP32 Smart Greenhouse Hydroponic Controller",
-    category: "IoT / Hardware",
-    description: {
-      id: "Kontrol pompa nutrisi, sensor pH dan suhu air hidroponik otomatis dengan logging data ke database cloud.",
-      en: "Automated nutrient pump, pH sensor, and water temp monitor with cloud database logging.",
-    },
-    techStack: ["ESP32", "Arduino", "MQTT", "Node.js"],
-    githubUrl: "https://github.com/danielsinurat/esp32-hydroponics",
-  },
-  {
-    id: "n8n-gmail-notion",
-    title: "n8n Invoice Scanner to Notion & Telegram",
-    category: "Automation",
-    description: {
-      id: "Workflow otomatis memindai invoice PDF dari email, mengekstrak data penting, dan mencatatnya ke database Notion.",
-      en: "Automated workflow scanning email invoices, parsing key details, and appending to Notion database.",
-    },
-    techStack: ["n8n", "Webhook", "Notion API", "Telegram Bot"],
-    githubUrl: "https://github.com/danielsinurat/n8n-invoice-notion",
-  },
-  {
-    id: "resto-menu-qr",
-    title: "QR Code Interactive Dining Menu & Order",
-    category: "Web App",
-    description: {
-      id: "Buku menu digital interaktif berbasis web tanpa perlu install aplikasi, langsung kirim order ke dapur via WhatsApp.",
-      en: "Interactive web digital dining menu without app installs, sending orders directly to kitchen via WhatsApp.",
-    },
-    techStack: ["React", "Tailwind CSS", "PHP", "WhatsApp API"],
-    githubUrl: "https://github.com/danielsinurat/qr-menu-resto",
-  },
-  {
-    id: "attendance-rfid",
-    title: "RFID IoT Attendance Terminal with Web Sync",
-    category: "IoT & Web",
-    description: {
-      id: "Alat absensi kartu RFID berbasis ESP32 yang terhubung ke dashboard web kehadiran karyawan secara real-time.",
-      en: "ESP32 RFID card reader hardware syncing with real-time employee web attendance portal.",
-    },
-    techStack: ["ESP32", "RFID RC522", "PHP", "MySQL"],
-    githubUrl: "https://github.com/danielsinurat/rfid-iot-absensi",
-  },
-  {
-    id: "portfolio-minimalist",
-    title: "Clean Developer Portfolio Template",
-    category: "UI/UX & Code",
-    description: {
-      id: "Template web portfolio developer open-source dengan performa skor 100 di Google Lighthouse.",
-      en: "Open-source developer portfolio template with 100/100 Google Lighthouse performance score.",
-    },
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/danielsinurat/minimal-developer-portfolio",
-  },
-  {
-    id: "weather-station-web",
-    title: "Micro-Weather Station Web Widget",
-    category: "IoT & API",
-    description: {
-      id: "Widget ramalan cuaca lokal dengan sensor BME280 dan komparasi API OpenWeatherMap secara grafis.",
-      en: "Local weather forecasting dashboard using BME280 sensor alongside OpenWeatherMap API data.",
-    },
-    techStack: ["ESP32", "Next.js", "Chart.js"],
-    githubUrl: "https://github.com/danielsinurat/weather-iot-widget",
-  },
-];
+export const initialOtherProjects: OtherProject[] = [];
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -390,39 +153,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "RESTful API", level: "Advanced", icon: "api", highlight: true },
       { name: "Node.js", level: "Intermediate", icon: "nodejs" },
       { name: "PostgreSQL", level: "Intermediate", icon: "database" },
-    ],
-  },
-  {
-    id: "iot",
-    title: { id: "IoT & Sistem Tertanam", en: "IoT & Embedded Systems" },
-    description: {
-      id: "Menghubungkan dunia fisik ke web: mikrokontroler, pembacaan sensor, MQTT, dan telemetri langsung.",
-      en: "Bridging physical hardware to the web: microcontrollers, sensor telemetry, and real-time control.",
-    },
-    iconName: "cpu",
-    skills: [
-      { name: "ESP32", level: "Advanced", icon: "esp32", highlight: true },
-      { name: "Arduino C++", level: "Advanced", icon: "arduino" },
-      { name: "MQTT Protocol", level: "Advanced", icon: "mqtt", highlight: true },
-      { name: "WebSocket Live Data", level: "Intermediate", icon: "websocket" },
-      { name: "Sensors & Actuators", level: "Advanced", icon: "chip" },
-    ],
-  },
-  {
-    id: "automation",
-    title: { id: "Automasi & Alat Kerja", en: "Automation & Dev Tools" },
-    description: {
-      id: "Mengotomasi alur kerja repetitif dan memaksimalkan produktivitas tim pengembang.",
-      en: "Automating repetitive business workflows and maximizing developer productivity.",
-    },
-    iconName: "workflow",
-    skills: [
-      { name: "n8n Workflow", level: "Advanced", icon: "n8n", highlight: true },
-      { name: "Git & GitHub", level: "Advanced", icon: "git", highlight: true },
-      { name: "Postman", level: "Advanced", icon: "postman" },
-      { name: "Docker Basics", level: "Intermediate", icon: "docker" },
-      { name: "Figma UI/UX", level: "Intermediate", icon: "figma" },
-      { name: "Linux / CLI", level: "Intermediate", icon: "terminal" },
     ],
   },
 ];
@@ -469,44 +199,7 @@ export const experienceList: ExperienceItem[] = [
   },
 ];
 
-export const testimonials: Testimonial[] = [
-  {
-    id: "1",
-    name: "Arya Wicaksono",
-    role: { id: "Creative Director", en: "Creative Director" },
-    company: "Dignify Studio",
-    quote: {
-      id: "Daniel memiliki pemahaman luar biasa dalam menerjemahkan kebutuhan visual ke dalam kode web yang sangat cepat. Tampilan web kami terlihat sangat estetik dan bekerja mulus di HP!",
-      en: "Daniel has an exceptional talent for translating visual requirements into blazing-fast code. Our studio website looks stunning and works flawlessly on mobile!",
-    },
-    avatar: "AW",
-    rating: 5,
-  },
-  {
-    id: "2",
-    name: "Budi Santoso",
-    role: { id: "Owner & Founder", en: "Owner & Founder" },
-    company: "Kopi Seduh Nusantara",
-    quote: {
-      id: "Sistem kasir dan automasi WhatsApp yang dibuatkan Daniel memotong antrean panjang di kafe kami saat jam ramai. Sangat profesional, solutif, dan mudah diajak komunikasi.",
-      en: "The POS system and WhatsApp automation Daniel built eliminated long queues at our cafe during rush hours. Incredibly professional, solution-oriented, and easy to work with.",
-    },
-    avatar: "BS",
-    rating: 5,
-  },
-  {
-    id: "3",
-    name: "Dr. Ir. Hendra Saputra",
-    role: { id: "Dosen Pembimbing PBL", en: "PBL Project Supervisor" },
-    company: "Universitas Brawijaya",
-    quote: {
-      id: "Kombinasi kemampuan web fullstack dan hardware IoT ESP32 yang dimiliki Daniel sangat langka. Proyek telemetrinya berjalan stabil dan terstruktur dengan rapi.",
-      en: "Daniel's dual mastery of fullstack web and ESP32 IoT hardware is rare. His telemetry project was remarkably stable, scalable, and well-architected.",
-    },
-    avatar: "HS",
-    rating: 5,
-  },
-];
+export const testimonials: Testimonial[] = [];
 
 export const statistics = [
   {
