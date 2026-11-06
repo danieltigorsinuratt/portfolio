@@ -429,116 +429,43 @@ export const skillCategories: SkillCategory[] = [
 
 export const experienceList: ExperienceItem[] = [
   {
-    id: "dignify",
-    company: "Dignify Studio",
+    id: "pelindo-3-kalimantan",
+    company: "Pelindo 3 Sub Regional Kalimantan",
     role: {
-      id: "Web Developer & Digital Lead",
-      en: "Web Developer & Digital Lead",
+      id: "Magang Divisi IT (IT Division Intern)",
+      en: "IT Division Intern",
     },
-    location: "Indonesia",
-    period: "2023 - Sekarang (Present)",
-    type: { id: "Full-time / Studio", en: "Full-time / Studio" },
+    location: "Sub Regional Kalimantan, Indonesia",
+    period: "Juli - Desember 2026",
+    type: { id: "Magang / Internship", en: "Internship" },
     description: {
-      id: "Memimpin perancangan dan pengembangan platform digital Dignify Studio, membangun portal klien dan sistem automasi.",
-      en: "Leading the design and engineering of Dignify Studio's digital platforms, client portals, and automation workflows.",
+      id: "Melaksanakan program magang pada Divisi Teknologi Informasi (IT) di Pelindo 3 Sub Regional Kalimantan, mendukung pengembangan aplikasi internal, pengelolaan infrastruktur server, serta operasional sistem teknologi informasi.",
+      en: "Undertaking an internship program in the Information Technology (IT) Division at Pelindo 3 Sub Regional Kalimantan, supporting internal web system development, server infrastructure management, and daily IT operations.",
     },
     highlights: [
       {
-        id: "Merancang arsitektur web responsif dengan performa skor 95+ di Google Lighthouse",
-        en: "Architected responsive web platforms with 95+ scores on Google Lighthouse",
+        id: "Mengembangkan dan memelihara sistem aplikasi berbasis web untuk mendukung operasional internal di lingkungan Pelindo 3 Sub Regional Kalimantan",
+        en: "Developing and maintaining internal web-based applications to support operational workflows at Pelindo 3 Sub Regional Kalimantan",
       },
       {
-        id: "Mengintegrasikan pipeline n8n untuk intake pesanan dan notifikasi WhatsApp otomatis",
-        en: "Integrated n8n automation for order intake and automated WhatsApp notifications",
+        id: "Membantu pengelolaan server, jaringan, serta deployment layanan aplikasi pada divisi IT",
+        en: "Assisting in server administration, network configuration, and application service deployment within the IT division",
       },
       {
-        id: "Mengembangkan komponen UI interaktif yang konsisten di layar smartphone dan laptop",
-        en: "Crafted interactive UI components seamlessly adapted for both mobile and laptop screens",
+        id: "Melakukan troubleshooting teknis, pemeliharaan basis data, dan optimalisasi kinerja sistem informasi perusahaan",
+        en: "Performing technical troubleshooting, database maintenance, and performance optimization for enterprise information systems",
       },
     ],
-    techStack: ["Laravel", "React", "Next.js", "MySQL", "Tailwind CSS", "n8n"],
-  },
-  {
-    id: "pbl-ub",
-    company: "Project Based Learning (PBL) - Universitas Brawijaya",
-    role: {
-      id: "Fullstack Web & IoT Integrator",
-      en: "Fullstack Web & IoT Integrator",
-    },
-    location: "PSDKU UB Kediri",
-    period: "2022 - 2024",
-    type: { id: "Academic / Industry Project", en: "Academic / Industry Project" },
-    description: {
-      id: "Mengembangkan proyek riil berupa portal sistem informasi akademik dan sistem telemetri IoT berbasis ESP32.",
-      en: "Developed real-world systems including academic information portals and ESP32 telemetry hardware solutions.",
-    },
-    highlights: [
-      {
-        id: "Membangun sistem akademik multi-role menggunakan Laravel dan basis data MySQL terdistribusi",
-        en: "Engineered a multi-role academic platform using Laravel and normalized MySQL schema",
-      },
-      {
-        id: "Merancang node IoT ESP32 untuk pemantauan lingkungan secara berkala dengan dashboard live",
-        en: "Prototyped ESP32 sensor nodes for environmental monitoring with real-time web charts",
-      },
-      {
-        id: "Memperoleh penilaian A dan apresiasi tim penguji atas kualitas arsitektur kode",
-        en: "Achieved Grade A and commendations for code architecture and user experience",
-      },
+    techStack: [
+      "Laravel",
+      "PHP",
+      "Next.js",
+      "React",
+      "MySQL",
+      "PostgreSQL",
+      "Ubuntu Server",
+      "Nginx",
     ],
-    techStack: ["Laravel", "PHP", "MySQL", "ESP32", "Arduino C++", "Bootstrap"],
-  },
-  {
-    id: "freelance",
-    company: "Freelance & Independent Client Work",
-    role: {
-      id: "Web Developer & System Consultant",
-      en: "Web Developer & System Consultant",
-    },
-    location: "Remote",
-    period: "2022 - Sekarang (Present)",
-    type: { id: "Freelance / Contract", en: "Freelance / Contract" },
-    description: {
-      id: "Membantu UMKM, startup, dan perorangan mendigitalkan operasional mereka lewat web app kustom dan otomasi.",
-      en: "Assisting MSMEs, startups, and individuals in digitizing operations through custom web apps and automations.",
-    },
-    highlights: [
-      {
-        id: "Membangun sistem POS kasir kafe dengan cetak Bluetooth dan auto report n8n",
-        en: "Built a cafe POS system with Bluetooth printing and n8n automated reporting",
-      },
-      {
-        id: "Merancang landing page interaktif dengan konversi tinggi untuk campaign produk",
-        en: "Designed high-converting interactive landing pages for product launch campaigns",
-      },
-    ],
-    techStack: ["Laravel", "React", "Next.js", "MySQL", "n8n"],
-  },
-  {
-    id: "education",
-    company: "Universitas Brawijaya (PSDKU Kediri)",
-    role: {
-      id: "Mahasiswa D-III Teknologi Informasi",
-      en: "D-III Information Technology Graduate",
-    },
-    location: "Kediri / Malang, Indonesia",
-    period: "2021 - 2024",
-    type: { id: "Pendidikan Tinggi / Education", en: "Higher Education" },
-    description: {
-      id: "Menyelesaikan studi kejuruan D-III Teknologi Informasi dengan fokus pada Rekayasa Web, Basis Data, Jaringan Komputer, dan Mikrokontroler.",
-      en: "Completed D-III Information Technology with deep focus on Web Engineering, Databases, Computer Networks, and Microcontrollers.",
-    },
-    highlights: [
-      {
-        id: "Lulus dengan pemahaman kuat dalam struktur data, logika pemrograman, dan arsitektur web modern",
-        en: "Graduated with strong foundations in data structures, algorithms, and modern web architectures",
-      },
-      {
-        id: "Aktif dalam proyek kolaboratif teknologi informasi dan riset implementasi IoT",
-        en: "Active in collaborative IT projects and real-world IoT implementation research",
-      },
-    ],
-    techStack: ["PHP", "Laravel", "MySQL", "Java", "C++", "Networking"],
   },
 ];
 
