@@ -21,6 +21,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
 
   useEffect(() => {
+    setPreviewMode("desktop");
     if (isOpen && project) {
       const prevBodyOverflow = document.body.style.overflow;
       const prevHtmlOverflow = document.documentElement.style.overflow;
@@ -192,14 +193,35 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     className="px-3.5 py-2 rounded-xl bg-[#121215] [data-theme='light']_&:bg-white border border-white/10 [data-theme='light']_&:border-zinc-300 text-xs font-medium text-zinc-300 [data-theme='light']_&:text-zinc-800 flex items-center gap-2 shadow-sm"
                   >
                     <svg
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 64 64"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
-                      className="w-3.5 h-3.5 text-zinc-400"
+                      strokeWidth="3.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4 text-zinc-300 [data-theme='light']_&:text-zinc-700 shrink-0"
                     >
-                      <circle cx="12" cy="12" r="9" />
-                      <path d="M3.6 9h16.8M3.6 15h16.8" />
+                      {/* Top Cube */}
+                      <path d="M19.5 30.5V17L30.5 11L33.5 12.6" />
+                      <path d="M36.5 14.3L41.5 17V31.5" />
+                      <path d="M19.5 17L30.5 23L41.5 17" />
+                      <path d="M30.5 23V36.5" />
+                      {/* 3 Dots on Top Cube Right Face */}
+                      <circle cx="38" cy="24.2" r="1.4" fill="currentColor" stroke="none" />
+                      <circle cx="38" cy="28" r="1.4" fill="currentColor" stroke="none" />
+                      <circle cx="35" cy="29" r="1.4" fill="currentColor" stroke="none" />
+
+                      {/* Bottom-Left Cube */}
+                      <path d="M8.5 36.5L19.5 30.5L30.5 36.5L19.5 42.5L8.5 36.5Z" />
+                      <path d="M8.5 36.5V40.5" />
+                      <path d="M8.5 44V50L19.5 56L30.5 50V36.5" />
+                      <path d="M19.5 42.5V56" />
+
+                      {/* Bottom-Right Tilted Cube */}
+                      <path d="M34 32H46.5L54.5 42H42L34 32Z" />
+                      <path d="M34 32L28.5 44.5L36.5 54.5L42 42" />
+                      <path d="M36.5 54.5H49L50.8 50.5" />
+                      <path d="M52.3 47L54.5 42" />
                     </svg>
                     <span>{tech}</span>
                   </span>
@@ -258,6 +280,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     <MobilePhoneMockup
                       screenImage={project.mobileImage}
                       frameImage={project.mobileFrameImage}
+                      statusBarBg={project.statusBarBg}
+                      bottomBarBg={project.bottomBarBg}
+                      darkStatusIcons={project.darkStatusIcons}
                       alt={`${project.title[lang]} Mobile`}
                       className="w-60 sm:w-72 drop-shadow-[0_20px_35px_rgba(0,0,0,0.75)]"
                     />

@@ -11,7 +11,6 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
 import { Experience } from "@/components/Experience";
-import { Stats } from "@/components/Stats";
 import { GithubContributions } from "@/components/GithubContributions";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -112,16 +111,13 @@ export default function HomePage() {
           }}
         />
 
-        {/* 3. Portfolio Showcase: Projects & Tech Stack Tabs (02. Portfolio) */}
-        <Projects projects={projects} lang={lang} />
-
-        {/* 4. Experience Timeline */}
+        {/* 3. Experience Timeline (Setelah About) */}
         <Experience lang={lang} />
 
-        {/* 5. Animated Statistics */}
-        <Stats lang={lang} />
+        {/* 4. Portfolio Showcase: Projects & Tech Stack Tabs (Di bawah Experience) */}
+        <Projects projects={projects} lang={lang} />
 
-        {/* 6. Real-time GitHub Contributions */}
+        {/* 5. Real-time GitHub Contributions */}
         <GithubContributions lang={lang} username="danieltigorsinuratt" />
 
         {/* 7. Contact Form & WhatsApp (03. Contact) */}

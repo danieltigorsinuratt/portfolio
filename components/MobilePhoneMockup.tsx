@@ -73,7 +73,9 @@ export const MobilePhoneMockup: React.FC<MobilePhoneMockupProps> = ({
           <div
             className="h-[64%] w-[32%] bg-black rounded-full flex items-center justify-between px-[6%] shadow-sm relative"
             style={{
-              boxShadow: "inset 0 0 2px rgba(255,255,255,0.12)",
+              boxShadow: darkStatusIcons
+                ? "inset 0 0 2px rgba(255,255,255,0.12)"
+                : "0 0 0 1px rgba(255,255,255,0.16), inset 0 0 3px rgba(255,255,255,0.12)",
             }}
           >
             {/* Subtle IR sensor dot on left of Dynamic Island */}
